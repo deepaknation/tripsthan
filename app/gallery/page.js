@@ -1,0 +1,4 @@
+import Parallax from "@/components/Parallax";import Img from "@/components/Img";import Reveal from "@/components/Reveal";import {img,GALLERY} from "@/lib/images";
+export const metadata={title:"Gallery – TripSthan"};
+export default function G(){return(<main><Parallax img={img("travel",1800)} priority h="min-h-[40vh]"><h1 className="!text-white text-4xl sm:text-5xl">Photo Gallery</h1><p className="mt-2 text-white/85">Moments from India's palaces, peaks, ghats and jungles.</p></Parallax>
+<div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-5 py-14 md:grid-cols-3">{GALLERY.map((k,i)=><Reveal key={k} delay={(i%3)*.1}><div className={`group relative overflow-hidden rounded-card shadow-card ${i%4===0?"aspect-[4/5]":"aspect-square"}`}><Img src={img(k,900)} alt={"India travel photo "+(i+1)} sizes="(max-width:768px) 50vw,33vw" className="transition duration-700 group-hover:scale-110"/></div></Reveal>)}</div></main>)}
