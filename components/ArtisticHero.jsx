@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function ArtisticHero() {
   return (
@@ -8,7 +9,7 @@ export default function ArtisticHero() {
       <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-6">
           
-          {/* Left Column: Heading, Subtitle & Single Button (exactly like reference) */}
+          {/* Left Column: Heading, Subtitle & Single Button */}
           <div className="z-10 flex flex-col items-start lg:col-span-6 lg:pr-4">
             <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-[#8E2818] sm:text-5xl lg:text-[3.5rem] xl:text-[4rem]">
               Explore India Outside<br />
@@ -29,18 +30,26 @@ export default function ArtisticHero() {
             </div>
           </div>
 
-          {/* Right Column: Seamless Artwork blending into canvas */}
+          {/* Right Column: Transparent PNG Artwork with gentle floating motion */}
           <div className="relative flex items-center justify-center lg:col-span-6">
-            <div className="relative aspect-[16/10] w-full max-w-2xl">
+            <motion.div
+              animate={{ y: [-10, 10, -10] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative aspect-[16/10] w-full max-w-2xl"
+            >
               <Image
-                src="/hero-artistic-india.jpg"
+                src="/hero-artistic-india.png"
                 alt="Explore India Outside The Book - Taj Mahal, monuments and elephant watercolor artwork"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-contain object-center lg:object-right mix-blend-multiply"
+                className="object-contain object-center lg:object-right"
               />
-            </div>
+            </motion.div>
           </div>
 
         </div>
