@@ -2,7 +2,7 @@
 import {useState} from "react";import Link from "next/link";import PackageCard from "./PackageCard";import {img} from "@/lib/images";import {packages,featured,wa} from "@/lib/data";
 const Chip=({on,...p})=><button {...p} className={`shrink-0 rounded-full border px-5 py-2 text-sm font-medium transition ${on?"border-saffron bg-saffron text-white":"border-line bg-warm text-ink"}`}/>;
 const Head=({t,s})=><div className="mb-8"><h2 className="text-3xl">{t}</h2>{s&&<p className="mt-1">{s}</p>}</div>;
-export function Offers(){const T=["All Tours","Adventure","Wildlife","Cultural","Beach","Pilgrimage","Honeymoon"];const [t,s]=useState(T[0]);
+export function Offers(){const T=["All Tours","Adventure","Wildlife","Cultural"];const [t,s]=useState(T[0]);
 const list=t===T[0]?featured:packages.filter(p=>p.tag===t).slice(0,4);return(<>
 <div className="border-b border-line bg-white"><div className="mx-auto flex max-w-6xl gap-3 overflow-x-auto px-5 py-5">{T.map(x=><Chip key={x} on={t===x} onClick={()=>s(x)}>{x}</Chip>)}</div></div>
 <section className="bg-warm"><div className="mx-auto max-w-6xl px-5 py-16"><Head t="Our Special Offers" s="Let us plan a perfect India holiday for you."/>

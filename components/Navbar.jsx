@@ -1,9 +1,9 @@
 "use client";
 import {useState} from "react";import Link from "next/link";import {C,tel} from "@/lib/data";
 const L=[["Home","/"],["About","/about"],["Tours & Packages","/tours"],["Gallery","/gallery"],["Contact","/contact"]];
-export default function Navbar(){const [o,s]=useState(false);return(<header className="sticky top-0 z-50 bg-white/95 backdrop-blur">
-<div className="hidden bg-dark text-xs text-white md:block"><div className="mx-auto flex max-w-6xl justify-between px-5 py-1.5"><span>{C.phones.map((p,i)=><a key={p} href={tel(p)} className="mr-4">{p}</a>)}</span><span>{C.emails.join("  |  ")}</span></div></div>
-<nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2">
+export default function Navbar(){const [o,s]=useState(false);return(<header className="sticky top-0 z-50 bg-[#F7EFE4]/95 backdrop-blur border-b border-[#EAE0D2]">
+<div className="hidden bg-[#261E19] text-xs text-[#E8DFC8] md:block"><div className="mx-auto flex max-w-6xl justify-between px-5 py-1.5"><span>{C.phones.map((p,i)=><a key={p} href={tel(p)} className="mr-4 hover:underline">{p}</a>)}</span><span>{C.emails.join("  |  ")}</span></div></div>
+<nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2.5">
 <Link href="/"><img src="/logo.png" alt="TripSthan" className="h-12 w-auto"/></Link>
 <ul className="hidden gap-7 text-sm font-medium text-ink md:flex">{L.map(([n,h])=><li key={h}><Link href={h}>{n}</Link></li>)}</ul>
 <Link href="/contact" className="btn hidden !py-2 text-sm md:inline-flex">Start Journey</Link>
