@@ -1,6 +1,6 @@
 "use client";
 import {useState} from "react";import Link from "next/link";import {C,tel} from "@/lib/data";
-const L=[["Home","/"],["About","/about"],["Tours & Packages","/tours"],["Gallery","/gallery"],["Contact","/contact"]];
+const L=[["Home","/"],["Tours & Packages","/tours"],["Car Hire","/cars"],["Gallery","/gallery"],["About","/about"],["Contact","/contact"]];
 export default function Navbar(){const [o,s]=useState(false);return(<header className="sticky top-0 z-50 bg-[#F7EFE4]/95 backdrop-blur border-b border-[#EAE0D2]">
 <div className="hidden bg-[#261E19] text-xs text-[#E8DFC8] md:block"><div className="mx-auto flex max-w-6xl justify-between px-5 py-1.5"><span>{C.phones.map((p,i)=><a key={p} href={tel(p)} className="mr-4 hover:underline">{p}</a>)}</span><span>{C.emails.join("  |  ")}</span></div></div>
 <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2.5">
