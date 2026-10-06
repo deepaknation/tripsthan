@@ -4,6 +4,7 @@ module.exports = {
   },
   async redirects() {
     return [
+      { source: "/car-hire", destination: "/cars", permanent: true },
       { source: "/car-rental", destination: "/cars", permanent: true },
       { source: "/car-service", destination: "/cars", permanent: true },
       { source: "/economy.php", destination: "/cars", permanent: true },
