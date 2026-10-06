@@ -3,7 +3,7 @@ import { C, tel } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#EFE8DE] text-[#42352D] pt-16 pb-8 border-t border-[#DECFC0]">
+    <footer className="relative overflow-hidden bg-[#FBF7F0] text-[#42352D] pt-12 border-t border-[#DECFC0]">
       {/* Main 4-Column Footer Grid */}
       <div className="mx-auto max-w-7xl px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 relative z-10">
 
@@ -251,17 +251,17 @@ export default function Footer() {
 
       </div>
 
-      {/* Decorative Oversized Watermark Logo / Text */}
-      <div className="relative mt-12 sm:mt-16 overflow-hidden border-t border-[#DECFC0]/70 pt-6 select-none pointer-events-none">
-        <div className="mx-auto max-w-7xl px-6 md:px-12 flex justify-between items-center text-xs text-[#7A6A5E] pb-4">
-          <p>© {new Date().getFullYear()} TripSthan Tours Pvt. Ltd. All Rights Reserved.</p>
-          <p className="hidden sm:block">Recognized Travel Agency & Private Tourist Cab Service</p>
-        </div>
+      {/* Copyright row */}
+      <div className="mx-auto max-w-7xl px-6 md:px-12 flex flex-col sm:flex-row justify-between items-center text-xs text-[#7A6A5E] pt-10 pb-4 border-t border-[#DECFC0]/70 mt-12 relative z-10">
+        <p>© {new Date().getFullYear()} TripSthan Tours Pvt. Ltd. All Rights Reserved.</p>
+        <p className="hidden sm:block">Recognized Travel Agency & Private Tourist Cab Service</p>
+      </div>
 
-        {/* Oversized Brand Watermark Text as seen in screenshot */}
-        <p className="text-center font-extrabold tracking-tighter text-[#7A2318]/12 text-6xl sm:text-8xl md:text-9xl lg:text-[13rem] leading-none whitespace-nowrap translate-y-4 sm:translate-y-8 select-none">
+      {/* Big Background Watermark */}
+      <div className="w-full overflow-hidden flex justify-center -mb-4 sm:-mb-6 pointer-events-none">
+        <span className="font-extrabold tracking-tight text-[#7A2318]/10 text-[13vw] leading-none whitespace-nowrap select-none">
           TripSthan
-        </p>
+        </span>
       </div>
     </footer>
   );
