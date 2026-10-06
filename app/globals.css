@@ -1,6 +1,33 @@
-@tailwind base;@tailwind components;@tailwind utilities;
-body{@apply bg-white text-body font-body}
-h1,h2,h3,h4{@apply font-head font-bold text-ink}
-.btn{@apply inline-flex items-center gap-2 rounded-full bg-saffron px-6 py-3 font-semibold text-white transition hover:brightness-90}
-.card{@apply rounded-card bg-white shadow-card border border-line}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, ::before, ::after {
+    font-family: var(--font-poppins), 'Poppins', sans-serif;
+  }
+}
+
+body {
+  @apply bg-white text-body;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-ink;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 rounded-full bg-saffron px-6 py-3 font-semibold text-white transition hover:brightness-90;
+}
+
+.card {
+  @apply rounded-card bg-white shadow-card border border-line;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
