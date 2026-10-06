@@ -2,14 +2,10 @@
 import Link from "next/link";
 import Img from "./Img";
 import Reveal from "./Reveal";
-import { wa } from "@/lib/data";
 
 export default function PackageCard({ p, i = 0 }) {
   if (!p) return null;
   const href = "/tours/" + p.slug;
-  const waLink = `${wa}?text=${encodeURIComponent(
-    `Hello TripSthan, I would like to inquire about the "${p.title}" (${p.duration || p.days + " Days"}). Please share details and best price quote.`
-  )}`;
 
   return (
     <Reveal delay={i * 0.08} className="h-full">
@@ -73,22 +69,20 @@ export default function PackageCard({ p, i = 0 }) {
             </ul>
           )}
 
-          {/* Action CTAs */}
-          <div className="mt-5 grid grid-cols-2 gap-2 border-t border-stone-100 pt-3">
+          {/* Redesigned Card Button: Explore Tour */}
+          <div className="mt-5 border-t border-stone-100 pt-3">
             <Link
               href={href}
-              className="inline-flex items-center justify-center rounded-full bg-saffron px-3 py-2 text-xs sm:text-sm font-semibold text-white transition hover:brightness-95 active:scale-95 text-center shadow-sm"
+              className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-saffron px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-[#8E2818] hover:shadow-md active:scale-95"
             >
-              Itinerary Details →
+              <span>Explore Tour</span>
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover/btn:translate-x-1"
+              >
+                →
+              </span>
             </Link>
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-emerald-600/40 bg-emerald-50 px-3 py-2 text-xs sm:text-sm font-semibold text-emerald-800 transition hover:bg-emerald-600 hover:text-white active:scale-95 text-center"
-            >
-              WhatsApp Quote
-            </a>
           </div>
         </div>
       </article>

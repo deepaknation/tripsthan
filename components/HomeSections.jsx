@@ -26,83 +26,21 @@ const Head = ({ t, s }) => (
 );
 
 export function Offers() {
-  const T = [
-    "All Special Offers",
-    "Golden Triangle",
-    "Rajasthan Heritage",
-    "Himachal & Mountains",
-    "Day & Short Tours",
-  ];
-  const [activeTab, setActiveTab] = useState(T[0]);
-
-  const getFilteredList = () => {
-    if (activeTab === "All Special Offers") return featured;
-    if (activeTab === "Golden Triangle")
-      return packages.filter((p) => p.category === "Golden Triangle" || p.slug.includes("golden-triangle"));
-    if (activeTab === "Rajasthan Heritage")
-      return packages.filter((p) => p.reg === "Rajasthan");
-    if (activeTab === "Himachal & Mountains")
-      return packages.filter((p) => p.reg === "Himachal" || p.reg === "Uttarakhand" || p.category === "Himachal & Mountains");
-    if (activeTab === "Day & Short Tours")
-      return packages.filter((p) => p.days <= 2 || p.category === "Day Tours");
-    return packages;
-  };
-
-  const list = getFilteredList();
-
   return (
-    <>
-      <div className="border-b border-[#EAE0D2] bg-white sticky top-[68px] z-30 shadow-xs">
-        <div className="mx-auto flex max-w-6xl gap-2.5 overflow-x-auto px-5 py-4 scrollbar-none">
-          {T.map((x) => (
-            <Chip key={x} on={activeTab === x} onClick={() => setActiveTab(x)}>
-              {x}
-            </Chip>
+    <section className="bg-[#FAF7F2] py-16 sm:py-20 border-b border-[#EAE0D2]">
+      <div className="mx-auto max-w-7xl px-5">
+        <Head
+          t="Our Special Offers"
+          s="Handcrafted itineraries featuring private AC chauffeur transport, verified local guides, and flexible customization."
+        />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featured.map((p, i) => (
+            <PackageCard key={p.slug} p={p} i={i} />
           ))}
         </div>
       </div>
-
-      <section className="bg-[#FAF7F2] py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-5">
-          <Head
-            t="Our Special Offers"
-            s="Handcrafted itineraries featuring private AC chauffeur transport, verified local guides, and flexible customization."
-          />
-
-          {list.length ? (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {list.map((p, i) => (
-                <PackageCard key={activeTab + p.slug} p={p} i={i} />
-              ))}
-            </div>
-          ) : (
-            <div className="rounded-2xl border border-stone-200 bg-white p-8 text-center">
-              <p className="text-stone-600">
-                Looking for a tailored route?{" "}
-                <a
-                  className="font-bold text-saffron underline hover:text-[#721F11]"
-                  href={wa}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ask us for a free customized plan on WhatsApp.
-                </a>
-              </p>
-            </div>
-          )}
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/tours"
-              className="inline-flex items-center gap-2 rounded-full bg-saffron px-8 py-3.5 text-base font-semibold text-white shadow-md transition hover:brightness-105 active:scale-95"
-            >
-              View All Tour Packages ({packages.length}+)
-              <span>→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+    </section>
   );
 }
 
