@@ -29,75 +29,77 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#F7EFE4]/95 backdrop-blur border-b border-[#EAE0D2]">
-      {/* Top Bar for Desktop */}
-      <div className="hidden bg-[#261E19] text-xs text-[#E8DFC8] md:block">
-        <div className="mx-auto flex max-w-6xl justify-between px-5 py-1.5">
-          <span>
-            {C.phones.map((p) => (
-              <a key={p} href={tel(p)} className="mr-4 hover:underline">
-                {p}
-              </a>
-            ))}
-          </span>
-          <span>{C.emails.join("  |  ")}</span>
+    <>
+      <header className="sticky top-0 z-40 bg-[#F7EFE4]/95 backdrop-blur border-b border-[#EAE0D2]">
+        {/* Top Bar for Desktop */}
+        <div className="hidden bg-[#261E19] text-xs text-[#E8DFC8] md:block">
+          <div className="mx-auto flex max-w-6xl justify-between px-5 py-1.5">
+            <span>
+              {C.phones.map((p) => (
+                <a key={p} href={tel(p)} className="mr-4 hover:underline">
+                  {p}
+                </a>
+              ))}
+            </span>
+            <span>{C.emails.join("  |  ")}</span>
+          </div>
         </div>
-      </div>
 
-      {/* Main Navbar Bar */}
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2.5">
-        <Link href="/" onClick={() => setOpen(false)}>
-          <img src="/logo.png" alt="TripSthan" className="h-12 w-auto" />
-        </Link>
+        {/* Main Navbar Bar */}
+        <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2.5">
+          <Link href="/" onClick={() => setOpen(false)}>
+            <img src="/logo.png" alt="TripSthan" className="h-12 w-auto" />
+          </Link>
 
-        {/* Desktop Nav Links */}
-        <ul className="hidden gap-7 text-sm font-medium text-ink md:flex">
-          {NAV_LINKS.map(([name, href]) => (
-            <li key={href}>
-              <Link
-                href={href}
-                className="transition-colors hover:text-saffron"
-              >
-                {name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          {/* Desktop Nav Links */}
+          <ul className="hidden gap-7 text-sm font-medium text-ink md:flex">
+            {NAV_LINKS.map(([name, href]) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="transition-colors hover:text-saffron"
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        {/* Desktop CTA */}
-        <Link
-          href="/contact"
-          className="hidden md:inline-flex items-center gap-2 rounded-full bg-saffron px-6 py-2 text-sm font-semibold text-white transition hover:brightness-90 active:scale-95"
-        >
-          Start Journey
-        </Link>
+          {/* Desktop CTA */}
+          <Link
+            href="/contact"
+            className="hidden md:inline-flex items-center gap-2 rounded-full bg-saffron px-6 py-2 text-sm font-semibold text-white transition hover:brightness-90 active:scale-95"
+          >
+            Start Journey
+          </Link>
 
-        {/* Mobile Hamburger with Smooth Morphing to 'X' */}
-        <button
-          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={open}
-          onClick={() => setOpen(!open)}
-          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full bg-dark text-white transition-all duration-300 md:hidden active:scale-90 shadow-md cursor-pointer"
-        >
-          <span
-            className={`h-0.5 w-5 rounded-full bg-white transition-all duration-300 ease-in-out ${
-              open ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-5 rounded-full bg-white transition-all duration-300 ease-in-out ${
-              open ? "opacity-0 -translate-x-2" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-5 rounded-full bg-white transition-all duration-300 ease-in-out ${
-              open ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
-        </button>
-      </nav>
+          {/* Mobile Hamburger Button with Smooth Morphing to 'X' */}
+          <button
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+            className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full bg-dark text-white transition-all duration-300 md:hidden active:scale-90 shadow-md cursor-pointer"
+          >
+            <span
+              className={`h-0.5 w-5 rounded-full bg-white transition-all duration-300 ease-in-out ${
+                open ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-5 rounded-full bg-white transition-all duration-300 ease-in-out ${
+                open ? "opacity-0 -translate-x-2" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-5 rounded-full bg-white transition-all duration-300 ease-in-out ${
+                open ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </nav>
+      </header>
 
-      {/* Mobile Drawer with Smooth Slide-in / Slide-out Animation */}
+      {/* Mobile Drawer (Rendered as SIBLING outside <header> so backdrop-blur does not trap fixed viewport positioning) */}
       <AnimatePresence>
         {open && (
           <>
@@ -109,33 +111,41 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm md:hidden"
             />
 
-            {/* Slide-in Drawer from Right Side */}
+            {/* Slide-in Full Height Drawer from Right */}
             <motion.aside
               key="mobile-drawer"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
-              className="fixed right-0 top-0 bottom-0 z-40 flex w-[290px] max-w-[85vw] flex-col justify-between bg-[#FAF6F0] p-6 pt-20 shadow-2xl md:hidden overflow-y-auto"
+              className="fixed inset-y-0 right-0 z-50 flex h-full h-[100dvh] w-[300px] max-w-[85vw] flex-col justify-between bg-[#FAF6F0] p-6 shadow-2xl md:hidden overflow-y-auto"
             >
               <div>
-                <div className="mb-5 pb-3 border-b border-[#EAE0D2]">
-                  <span className="text-xs font-bold uppercase tracking-widest text-saffron">
-                    Menu
-                  </span>
+                {/* Drawer Header with Logo & Prominent Close Button */}
+                <div className="flex items-center justify-between pb-4 border-b border-[#EAE0D2]">
+                  <img src="/logo.png" alt="TripSthan" className="h-10 w-auto" />
+                  <button
+                    onClick={() => setOpen(false)}
+                    aria-label="Close menu"
+                    className="grid h-10 w-10 place-items-center rounded-full bg-dark text-white transition hover:bg-black active:scale-90 cursor-pointer shadow-md"
+                  >
+                    <svg className="h-5 w-5 stroke-current stroke-2 fill-none" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                 </div>
 
                 {/* Nav Links */}
-                <ul className="space-y-1.5">
+                <ul className="mt-5 space-y-1.5">
                   {NAV_LINKS.map(([name, href]) => (
                     <li key={href}>
                       <Link
                         onClick={() => setOpen(false)}
                         href={href}
-                        className="flex items-center justify-between rounded-xl px-4 py-2.5 text-base font-semibold text-ink transition-all hover:bg-white hover:text-saffron hover:shadow-sm"
+                        className="flex items-center justify-between rounded-xl px-4 py-3 text-base font-semibold text-ink transition-all hover:bg-white hover:text-saffron hover:shadow-sm"
                       >
                         <span>{name}</span>
                         <span className="text-stone-400">→</span>
@@ -172,7 +182,7 @@ export default function Navbar() {
               </div>
 
               {/* Start Journey CTA Button */}
-              <div className="pt-6">
+              <div className="pt-6 pb-2">
                 <Link
                   onClick={() => setOpen(false)}
                   href="/contact"
@@ -186,6 +196,6 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
