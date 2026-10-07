@@ -12,8 +12,6 @@ const SLIDES = [
     location: "Agra & Golden Triangle",
     title: "Explore India Beyond The Guidebooks",
     desc: "Discover timeless heritage, royal palaces, and Himalayan peaks with TripSthan. Private AC cabs, tailor-made holiday packages, and certified local guides.",
-    ctaTours: "Explore Tour Packages",
-    ctaCars: "Book Private Cab",
   },
   {
     id: 2,
@@ -22,8 +20,6 @@ const SLIDES = [
     location: "Jaipur, Jodhpur & Udaipur",
     title: "Step Into Royal Palaces & Golden Sands",
     desc: "From Jaipur's honeycomb Hawa Mahal to Jaisalmer Thar desert camps and romantic lakeside palaces with courteous private chauffeurs.",
-    ctaTours: "View Rajasthan Tours",
-    ctaCars: "Hire Luxury Cab",
   },
   {
     id: 3,
@@ -32,8 +28,6 @@ const SLIDES = [
     location: "Shimla, Manali & Dharamshala",
     title: "Breathe The Cool Air of Himalayan Peaks",
     desc: "Escape to pine-covered valleys, snow-capped Rohtang Pass excursions, and colonial mountain charm with comfortable all-inclusive private vehicles.",
-    ctaTours: "View Himachal Packages",
-    ctaCars: "Book Mountain Cab",
   },
   {
     id: 4,
@@ -42,8 +36,6 @@ const SLIDES = [
     location: "Varanasi, Haridwar & Rishikesh",
     title: "Experience The Sacred Soul of India",
     desc: "Witness the mesmerizing evening Ganga Aarti, sunrise boat rituals on the holy river, and tranquil yoga retreats in the Himalayan foothills.",
-    ctaTours: "Spiritual Tour Packages",
-    ctaCars: "Private Ganga Cab",
   },
   {
     id: 5,
@@ -52,28 +44,34 @@ const SLIDES = [
     location: "Ranthambore & Bharatpur",
     title: "Track Royal Bengal Tigers in The Wild",
     desc: "Exciting open-jeep tiger safaris in Ranthambore and UNESCO birdwatching in Keoladeo paired with iconic North India heritage circuits.",
-    ctaTours: "Explore Jungle Tours",
-    ctaCars: "Book Safari Cab",
   },
 ];
 
 export default function ArtisticHero() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Auto-play interval (5.5 seconds)
+  // Preload slides for smooth, instant transitions
   useEffect(() => {
-    if (isPaused) return;
+    SLIDES.forEach((slide) => {
+      if (typeof window !== "undefined" && slide.image) {
+        const img = new window.Image();
+        img.src = slide.image;
+      }
+    });
+  }, []);
+
+  // Continuous auto-play slider (advances every 4.5 seconds)
+  useEffect(() => {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrent((prev) => (prev + 1) % SLIDES.length);
-    }, 5500);
+    }, 4500);
 
     return () => clearInterval(timer);
-  }, [isPaused, current]);
+  }, [current]);
 
   const goToSlide = (idx) => {
     setDirection(idx > current ? 1 : -1);
@@ -112,8 +110,6 @@ export default function ArtisticHero() {
   return (
     <section
       className="relative overflow-hidden bg-[#1F1814] text-white min-h-[580px] sm:min-h-[640px] md:min-h-[700px] lg:h-[calc(100vh-80px)] lg:max-h-[820px] flex items-center select-none"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -188,38 +184,28 @@ export default function ArtisticHero() {
             {slide.desc}
           </motion.p>
 
-          {/* Call-to-Action Buttons */}
-          <motion.div
-            key={`cta-${slide.id}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-7 sm:mt-9 flex flex-col sm:flex-row gap-3.5 justify-center md:justify-start w-full sm:w-auto"
-          >
+          {/* Single Primary Call-to-Action */}
+          <div className="mt-6 flex justify-center md:justify-start">
             <Link
               href="/tours"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-saffron px-7 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-saffron/30 transition-all duration-300 hover:brightness-110 active:scale-95 text-center"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-saffron bg-[#FFF5EC] px-6 py-2.5 text-xs sm:text-sm font-bold text-saffron shadow-md transition-all duration-300 hover:bg-saffron hover:text-white hover:shadow-lg active:scale-95 cursor-pointer"
             >
-              <span>{slide.ctaTours}</span>
-              <span>→</span>
+              <span>Explore Tour Packages</span>
+              <span className="text-base transition-transform duration-300 group-hover:translate-x-1.5">
+                →
+              </span>
             </Link>
-            <Link
-              href="/cars"
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/60 bg-white/10 px-7 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-ink active:scale-95 text-center"
-            >
-              <span>{slide.ctaCars}</span>
-            </Link>
-          </motion.div>
+          </div>
 
-          {/* Micro Trust Points on Desktop */}
-          <div className="hidden sm:flex items-center gap-6 mt-8 pt-6 border-t border-white/15 text-xs text-white/85">
-            <span className="flex items-center gap-1.5">
+          {/* Micro Trust Points */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 mt-6 pt-5 border-t border-white/15 text-xs text-white/90">
+            <span className="flex items-center gap-1.5 font-medium">
               <span className="text-emerald-400 font-bold">✓</span> Private AC Cabs
             </span>
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 font-medium">
               <span className="text-emerald-400 font-bold">✓</span> Verified Chauffeurs
             </span>
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 font-medium">
               <span className="text-amber-400 font-bold">★</span> 4.9/5 Rating (5,000+ Guests)
             </span>
           </div>
@@ -227,42 +213,31 @@ export default function ArtisticHero() {
         </div>
       </div>
 
-      {/* Prev / Next Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        aria-label="Previous Slide"
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20 transition-all duration-200 hover:bg-saffron hover:border-saffron hover:scale-105 active:scale-95"
-      >
-        <svg className="h-5 w-5 sm:h-6 sm:w-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      <button
-        onClick={nextSlide}
-        aria-label="Next Slide"
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20 transition-all duration-200 hover:bg-saffron hover:border-saffron hover:scale-105 active:scale-95"
-      >
-        <svg className="h-5 w-5 sm:h-6 sm:w-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
-      {/* Slide Navigation Dots / Indicators */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 sm:gap-3 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/15">
+      {/* Slide Navigation Dots / Indicators with Animated Progress Pill */}
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 sm:gap-3 bg-black/45 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-lg">
         {SLIDES.map((s, idx) => (
           <button
             key={s.id}
             onClick={() => goToSlide(idx)}
             aria-label={`Go to slide ${idx + 1}`}
-            className={`transition-all duration-300 rounded-full ${
+            className={`relative overflow-hidden transition-all duration-300 rounded-full cursor-pointer ${
               current === idx
-                ? "w-7 sm:w-9 h-2 bg-saffron shadow-sm"
-                : "w-2 h-2 bg-white/50 hover:bg-white"
+                ? "w-8 sm:w-10 h-2 sm:h-2.5 bg-white/25 shadow-sm"
+                : "w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/40 hover:bg-white/80"
             }`}
-          />
+          >
+            {current === idx && (
+              <motion.span
+                key={`progress-${current}`}
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 4.5, ease: "linear" }}
+                className="absolute inset-0 bg-saffron rounded-full"
+              />
+            )}
+          </button>
         ))}
-        <span className="text-[11px] font-semibold text-white/75 ml-1 hidden sm:inline">
+        <span className="text-[11px] font-semibold text-white/85 ml-1.5 tracking-wider hidden sm:inline">
           {current + 1} / {SLIDES.length}
         </span>
       </div>

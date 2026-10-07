@@ -58,16 +58,16 @@ export default function PackageCard({ p, i = 0 }) {
             </ul>
           )}
 
-          {/* Redesigned Card Button: Explore Tour */}
+          {/* Tour Package Card Button */}
           <div className="mt-5 border-t border-stone-100 pt-3">
             <Link
               href={href}
-              className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-saffron px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-[#8E2818] hover:shadow-md active:scale-95"
+              className="group/btn inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-saffron bg-[#FFF5EC] px-5 py-2.5 text-xs sm:text-sm font-bold text-saffron shadow-sm transition-all duration-300 hover:bg-saffron hover:text-white hover:shadow-md active:scale-95"
             >
-              <span>Explore Tour</span>
+              <span>Explore Tour Package</span>
               <span
                 aria-hidden="true"
-                className="transition-transform duration-300 group-hover/btn:translate-x-1"
+                className="text-base transition-transform duration-300 group-hover/btn:translate-x-1.5"
               >
                 →
               </span>
