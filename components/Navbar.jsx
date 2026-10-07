@@ -78,22 +78,19 @@ export default function Navbar() {
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full bg-dark text-white transition-all duration-300 md:hidden active:scale-90 shadow-md cursor-pointer"
+            className="relative flex h-9 w-9 flex-col items-center justify-center gap-1.5 bg-transparent text-black transition-all duration-300 md:hidden active:scale-90 cursor-pointer"
           >
             <span
-              className={`h-0.5 w-5 rounded-full bg-white transition-all duration-300 ease-in-out ${
-                open ? "translate-y-2 rotate-45" : ""
-              }`}
+              className={`h-0.5 w-5 rounded-full bg-black transition-all duration-300 ease-in-out ${open ? "translate-y-2 rotate-45" : ""
+                }`}
             />
             <span
-              className={`h-0.5 w-5 rounded-full bg-white transition-all duration-300 ease-in-out ${
-                open ? "opacity-0 -translate-x-2" : ""
-              }`}
+              className={`h-0.5 w-5 rounded-full bg-black transition-all duration-300 ease-in-out ${open ? "opacity-0 -translate-x-2" : ""
+                }`}
             />
             <span
-              className={`h-0.5 w-5 rounded-full bg-white transition-all duration-300 ease-in-out ${
-                open ? "-translate-y-2 -rotate-45" : ""
-              }`}
+              className={`h-0.5 w-5 rounded-full bg-black transition-all duration-300 ease-in-out ${open ? "-translate-y-2 -rotate-45" : ""
+                }`}
             />
           </button>
         </nav>
