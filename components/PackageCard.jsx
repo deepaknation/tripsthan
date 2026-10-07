@@ -8,8 +8,8 @@ export default function PackageCard({ p, i = 0 }) {
   const href = "/tours/" + p.slug;
 
   return (
-    <Reveal delay={i * 0.08} className="h-full">
-      <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-amber-200">
+    <Reveal delay={i * 0.08} className="h-full w-full max-w-full">
+      <article className="group flex h-full w-full max-w-full flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-amber-200">
         {/* Card Image Header */}
         <Link href={href} className="relative block h-52 overflow-hidden bg-stone-100" aria-label={p.title}>
           <Img
@@ -30,17 +30,6 @@ export default function PackageCard({ p, i = 0 }) {
             {p.reg || p.category || "Tour"}
           </span>
 
-          {/* Starting Price / Tag on Image Bottom */}
-          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white/90">
-            <span className="font-medium bg-black/40 backdrop-blur px-2.5 py-1 rounded-md">
-              ✓ Private AC Cab & Driver
-            </span>
-            {p.price && p.price !== "On request" ? (
-              <span className="font-bold text-amber-300 text-sm drop-shadow">
-                {p.price}
-              </span>
-            ) : null}
-          </div>
         </Link>
 
         {/* Card Body */}

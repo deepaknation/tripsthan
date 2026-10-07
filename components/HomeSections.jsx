@@ -49,21 +49,27 @@ export function Destinations() {
   const [selectedReg, setSelectedReg] = useState(R[0]);
 
   return (
-    <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:py-20 overflow-hidden w-full">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-        <Head
-          t="Popular Destinations"
-          s="Explore India's most celebrated states with private AC car circuits, door-to-door comfort, and flexible schedules."
-        />
+        <div>
+          <span className="inline-block rounded-full bg-[#8E2818]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#8E2818] mb-2">
+            Explore By Region
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-ink">Popular Destinations</h2>
+          <p className="mt-2 text-sm sm:text-base text-stone-600 max-w-2xl">
+            Explore India's most celebrated states with private AC car circuits, door-to-door comfort, and flexible schedules.
+          </p>
+        </div>
         <Link
           href="/tours"
-          className="mb-8 text-sm font-bold text-saffron hover:underline whitespace-nowrap"
+          className="text-sm font-bold text-saffron hover:underline whitespace-nowrap self-start sm:self-auto"
         >
           View all destinations →
         </Link>
       </div>
 
-      <div className="-mt-2 mb-8 flex gap-2.5 overflow-x-auto pb-2 scrollbar-none">
+      {/* Region Filter Chips */}
+      <div className="w-full max-w-full overflow-x-auto pb-3 mb-8 flex gap-2.5 scrollbar-none">
         {R.map((x) => (
           <Chip key={x} on={selectedReg === x} onClick={() => setSelectedReg(x)}>
             {x}
@@ -71,7 +77,8 @@ export function Destinations() {
         ))}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Fully Mobile Responsive Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-full">
         {packages
           .filter((p) => p.reg === selectedReg)
           .map((p, i) => (

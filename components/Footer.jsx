@@ -199,9 +199,17 @@ export default function Footer() {
             Contact Us
           </h3>
 
-          {/* Address */}
+          {/* Address with Library MapPin SVG */}
           <div className="flex items-start gap-3 text-sm">
-            <span className="text-base text-[#7A2318] shrink-0 mt-0.5">📍</span>
+            <svg
+              className="h-5 w-5 shrink-0 text-[#7A2318] mt-0.5 fill-none stroke-current stroke-2"
+              viewBox="0 0 24 24"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
             <div className="leading-relaxed">
               <p className="font-semibold text-[#3B2D24]">Agra, Uttar Pradesh, India</p>
               <p className="text-xs text-[#6B5A50] mt-0.5">Head Office & Taj Sightseeing Desk</p>
@@ -209,10 +217,17 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Phones */}
-          <div className="space-y-2 pt-1 text-sm">
+          {/* Phones with Library Phone SVGs */}
+          <div className="space-y-2.5 pt-1 text-sm">
             <div className="flex items-center gap-3">
-              <span className="text-sm text-[#7A2318] shrink-0">☎️</span>
+              <svg
+                className="h-4 w-4 shrink-0 text-[#7A2318] fill-none stroke-current stroke-2"
+                viewBox="0 0 24 24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
               <a
                 href={tel(C.phones[0])}
                 className="font-medium hover:text-[#7A2318] hover:underline"
@@ -222,7 +237,15 @@ export default function Footer() {
             </div>
             {C.phones[1] && (
               <div className="flex items-center gap-3">
-                <span className="text-sm text-[#7A2318] shrink-0">📞</span>
+                <svg
+                  className="h-4 w-4 shrink-0 text-[#7A2318] fill-none stroke-current stroke-2"
+                  viewBox="0 0 24 24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                  <path d="M12 18h.01" />
+                </svg>
                 <a
                   href={tel(C.phones[1])}
                   className="font-medium hover:text-[#7A2318] hover:underline"
@@ -233,11 +256,19 @@ export default function Footer() {
             )}
           </div>
 
-          {/* Emails */}
-          <div className="space-y-2 pt-1 text-sm">
+          {/* Emails with Library Mail SVG */}
+          <div className="space-y-2.5 pt-1 text-sm">
             {C.emails.map((e) => (
               <div key={e} className="flex items-center gap-3">
-                <span className="text-sm text-[#7A2318] shrink-0">✉️</span>
+                <svg
+                  className="h-4 w-4 shrink-0 text-[#7A2318] fill-none stroke-current stroke-2"
+                  viewBox="0 0 24 24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
                 <a
                   href={`mailto:${e}`}
                   className="break-all font-medium hover:text-[#7A2318] hover:underline"
@@ -257,9 +288,9 @@ export default function Footer() {
         <p className="hidden sm:block">Recognized Travel Agency & Private Tourist Cab Service</p>
       </div>
 
-      {/* Big Background Watermark */}
-      <div className="w-full overflow-hidden flex justify-center -mb-4 sm:-mb-6 pointer-events-none">
-        <span className="font-extrabold tracking-tight text-[#7A2318]/10 text-[13vw] leading-none whitespace-nowrap select-none">
+      {/* Big Background Watermark - Full & Uncropped */}
+      <div className="w-full flex justify-center items-center pt-4 pb-2 px-4 pointer-events-none select-none">
+        <span className="font-extrabold tracking-tight text-[#7A2318]/12 text-5xl sm:text-7xl md:text-8xl lg:text-[10vw] leading-normal whitespace-nowrap select-none">
           TripSthan
         </span>
       </div>
