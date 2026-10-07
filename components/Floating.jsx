@@ -3,7 +3,7 @@ import {C,tel,wa} from "@/lib/data";
 
 export default function Floating(){
   return (
-    <aside aria-label="Quick contact" className="fixed bottom-6 right-5 z-50 flex flex-col items-end gap-3 pointer-events-none">
+    <aside aria-label="Quick contact" className="fixed bottom-6 right-5 z-50 hidden md:flex flex-col items-end gap-3 pointer-events-none">
       {/* WhatsApp Button */}
       <div className="group relative flex items-center pointer-events-auto">
         <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-lg bg-dark/90 px-3 py-1.5 text-xs font-medium text-white shadow-lg backdrop-blur transition-all duration-200 group-hover:block">
