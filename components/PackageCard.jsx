@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Img from "./Img";
 import Reveal from "./Reveal";
+import HighlightedText from "./HighlightedText";
 
 export default function PackageCard({ p, i = 0 }) {
   if (!p) return null;
@@ -21,8 +22,12 @@ export default function PackageCard({ p, i = 0 }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
           {/* Duration Badge */}
-          <span className="absolute left-3 top-3 rounded-full bg-black/75 px-3 py-1 text-xs font-semibold text-white shadow-sm backdrop-blur-md">
-            ⏱️ {p.duration || `${p.days} ${p.days > 1 ? "Days" : "Day"}`}
+          <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-black/75 px-3 py-1 text-xs font-semibold text-white shadow-sm backdrop-blur-md">
+            <svg className="w-3.5 h-3.5 text-amber-300 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>{p.duration || `${p.days} ${p.days > 1 ? "Days" : "Day"}`}</span>
           </span>
 
           {/* Region / Category Badge */}
@@ -43,7 +48,7 @@ export default function PackageCard({ p, i = 0 }) {
 
           {/* Overview snippet */}
           <p className="mt-2.5 line-clamp-2 text-xs sm:text-sm leading-relaxed text-stone-600">
-            {p.overview}
+            <HighlightedText text={p.overview} />
           </p>
 
           {/* Quick Highlights Snippets (First 2 highlights) */}

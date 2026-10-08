@@ -4,7 +4,8 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Timeline from "@/components/Timeline";
 import PackageCard from "@/components/PackageCard";
-import { packages, wa, C, tel } from "@/lib/data";
+import HighlightedText from "@/components/HighlightedText";
+import { packages, wa } from "@/lib/data";
 
 export const generateStaticParams = () => packages.map((p) => ({ slug: p.slug }));
 
@@ -54,17 +55,30 @@ export default function TourDetailPage({ params }) {
 
           {/* Badges */}
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="rounded-full bg-saffron px-3.5 py-1 text-xs font-bold text-white shadow-sm">
-              ⏱️ {p.duration || `${p.days} Days`}
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-saffron px-3.5 py-1 text-xs font-bold text-white shadow-sm">
+              <svg className="w-3.5 h-3.5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>{p.duration || `${p.days} Days`}</span>
             </span>
-            <span className="rounded-full bg-white/20 backdrop-blur px-3 py-1 text-xs font-semibold text-white">
-              📍 {p.reg || "India"}
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur px-3 py-1 text-xs font-semibold text-white border border-white/20">
+              <svg className="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              <span>{p.reg || "India"}</span>
             </span>
-            <span className="rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 px-3 py-1 text-xs font-semibold">
-              ⭐ 4.9 (280+ Reviews)
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 px-3 py-1 text-xs font-semibold">
+              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span>4.9 (280+ Reviews)</span>
             </span>
-            <span className="rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 text-xs font-semibold">
-              ✓ 100% Private & Customizable
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 text-xs font-semibold">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>100% Private & Customizable</span>
             </span>
           </div>
 
@@ -75,48 +89,60 @@ export default function TourDetailPage({ params }) {
           <p className="mt-4 max-w-2xl text-sm sm:text-base text-white/85 leading-relaxed drop-shadow">
             Private air-conditioned car, experienced chauffeur, dedicated local guides, and flexible pickup & drop included.
           </p>
-
-          {/* Quick Action CTAs */}
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-saffron px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-saffron/30 transition hover:brightness-110 active:scale-95"
-            >
-              Enquire on WhatsApp
-              <span>→</span>
-            </a>
-            <a
-              href={tel(C.phones[0])}
-              className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur transition hover:bg-white/20 active:scale-95"
-            >
-              Call Us: {C.phones[0]}
-            </a>
-            {p.price && p.price !== "On request" && (
-              <span className="text-xl sm:text-2xl font-bold text-amber-300 sm:ml-4">
-                Starting {p.price}
-              </span>
-            )}
-          </div>
         </div>
       </section>
 
       {/* Quick Specs Strip */}
-      <section className="border-b border-[#EAE0D2] bg-[#F7EFE4]/80 py-6">
+      <section className="border-b border-[#EAE0D2] bg-[#F7EFE4]/80 py-5 sm:py-6">
         <div className="mx-auto max-w-6xl px-5">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
-              { icon: "⏱️", label: "Duration", val: p.duration || `${p.days} Days` },
-              { icon: "🚗", label: "Transport", val: "Private AC Cab with Driver" },
-              { icon: "👨‍✈️", label: "Local Guide", val: "Knowledgeable English Guide" },
-              { icon: "📍", label: "Pickup / Drop", val: "Hotel, Airport or Station" },
+              {
+                icon: (
+                  <svg className="w-5 h-5 text-saffron" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                ),
+                label: "Duration",
+                val: p.duration || `${p.days} Days`,
+              },
+              {
+                icon: (
+                  <svg className="w-5 h-5 text-saffron" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 17a2 2 0 100-4 2 2 0 000 4zm8 0a2 2 0 100-4 2 2 0 000 4zm-9-8l2-4h6l2 4M3 13h18l-1.5-4.5A2 2 0 0017.6 7H6.4a2 2 0 00-1.9 1.5L3 13zm0 0v4a1 1 0 001 1h1m16-5v4a1 1 0 01-1 1h-1" />
+                  </svg>
+                ),
+                label: "Transport",
+                val: "Private AC Cab with Driver",
+              },
+              {
+                icon: (
+                  <svg className="w-5 h-5 text-saffron" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                ),
+                label: "Local Guide",
+                val: "Knowledgeable English Guide",
+              },
+              {
+                icon: (
+                  <svg className="w-5 h-5 text-saffron" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                ),
+                label: "Pickup / Drop",
+                val: "Hotel, Airport or Station",
+              },
             ].map((spec, sIdx) => (
               <div key={sIdx} className="flex items-center gap-3">
-                <span className="text-2xl">{spec.icon}</span>
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm border border-[#EAE0D2]">
+                  {spec.icon}
+                </div>
                 <div>
                   <p className="text-xs text-stone-500 font-medium">{spec.label}</p>
-                  <p className="text-xs sm:text-sm font-bold text-ink">{spec.val}</p>
+                  <p className="text-xs sm:text-sm font-bold text-ink leading-snug">{spec.val}</p>
                 </div>
               </div>
             ))}
@@ -138,7 +164,7 @@ export default function TourDetailPage({ params }) {
             Tour Overview
           </h2>
           <div className="mt-5 text-base sm:text-lg leading-relaxed text-stone-700 whitespace-pre-line space-y-4">
-            {p.overview}
+            <HighlightedText text={p.overview} />
           </div>
         </section>
 
@@ -158,7 +184,9 @@ export default function TourDetailPage({ params }) {
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">
                       ✓
                     </span>
-                    <span className="leading-snug">{h}</span>
+                    <span className="leading-snug">
+                      <HighlightedText text={h} />
+                    </span>
                   </li>
                 </Reveal>
               ))}
@@ -214,7 +242,7 @@ export default function TourDetailPage({ params }) {
                   Custom Travel Plan
                 </span>
                 <p className="mt-2 text-base sm:text-lg leading-relaxed font-medium text-stone-800">
-                  {p.conclusion}
+                  <HighlightedText text={p.conclusion} />
                 </p>
               </div>
               <div className="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">

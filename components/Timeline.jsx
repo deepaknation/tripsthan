@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import HighlightedText from "./HighlightedText";
 
 export default function Timeline({ items = [] }) {
   if (!items || items.length === 0) return null;
@@ -54,7 +55,7 @@ export default function Timeline({ items = [] }) {
 
                 {/* Day Description */}
                 <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-stone-600 whitespace-pre-line">
-                  {desc}
+                  <HighlightedText text={desc} />
                 </p>
 
                 {/* Highlights / Monuments Bullet List (if available) */}
@@ -67,7 +68,7 @@ export default function Timeline({ items = [] }) {
                       {points.map((pt, pIdx) => (
                         <li key={pIdx} className="flex items-start gap-2">
                           <span className="text-saffron font-bold mt-0.5">•</span>
-                          <span>{pt}</span>
+                          <span><HighlightedText text={pt} /></span>
                         </li>
                       ))}
                     </ul>
