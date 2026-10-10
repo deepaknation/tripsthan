@@ -1,4 +1,32 @@
-import Parallax from "@/components/Parallax";import Img from "@/components/Img";import Reveal from "@/components/Reveal";import {img,GALLERY} from "@/lib/images";
-export const metadata={title:"Gallery – TripSthan"};
-export default function G(){return(<main><Parallax img={img("travel",1800)} priority h="min-h-[40vh]"><h1 className="!text-white text-4xl sm:text-5xl">Photo Gallery</h1><p className="mt-2 text-white/85">Moments from India's palaces, peaks, ghats and jungles.</p></Parallax>
-<div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-5 py-14 md:grid-cols-3">{GALLERY.map((k,i)=><Reveal key={k} delay={(i%3)*.1}><div className={`group relative overflow-hidden rounded-card shadow-card ${i%4===0?"aspect-[4/5]":"aspect-square"}`}><Img src={img(k,900)} alt={"India travel photo "+(i+1)} sizes="(max-width:768px) 50vw,33vw" className="transition duration-700 group-hover:scale-110"/></div></Reveal>)}</div></main>)}
+import Parallax from "@/components/Parallax";
+import GalleryView from "@/components/GalleryView";
+
+export const metadata = {
+  title: "Photo Gallery | Real India Travel Moments & Fleet – TripSthan",
+  description:
+    "Explore authentic travel moments from TripSthan private tours across Agra, Jaipur, Delhi, and Rajasthan.",
+};
+
+export default function GalleryPage() {
+  return (
+    <main className="min-h-screen bg-[#FAF7F2]">
+      {/* Majestic Parallax Visual Banner */}
+      <Parallax img="/hero-taj-sunrise.jpg" priority h="min-h-[42vh] sm:min-h-[48vh]">
+        <div className="text-center px-4 max-w-3xl mx-auto">
+          <span className="inline-block rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white border border-white/25 mb-3 shadow-sm">
+            TripSthan Travel Moments
+          </span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg tracking-tight">
+            Photo Gallery
+          </h1>
+          <p className="mt-3 text-sm sm:text-base md:text-lg text-white/90 drop-shadow max-w-2xl mx-auto leading-relaxed">
+            Real moments, iconic monuments, and unforgettable memories from our private chauffeur journeys across India.
+          </p>
+        </div>
+      </Parallax>
+
+      {/* Clean, Simple, Distraction-Free Image Grid */}
+      <GalleryView />
+    </main>
+  );
+}
