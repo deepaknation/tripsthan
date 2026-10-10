@@ -20,7 +20,7 @@ export default function AboutPage() {
       <Parallax img="/hero-artistic-india.jpg" priority h="min-h-[45vh] sm:min-h-[52vh]">
         <div className="text-center px-4 max-w-4xl mx-auto">
           <span className="inline-block rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white border border-white/20 mb-3 shadow-sm">
-            Tagline: Explore India Your Way
+            Explore India Your Way
           </span>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg tracking-tight">
             About TripSthan

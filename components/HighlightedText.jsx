@@ -103,7 +103,7 @@ export default function HighlightedText({
           return (
             <mark
               key={i}
-              className="inline rounded bg-[#FFF2E6] px-1 py-0.5 font-bold text-saffron border border-saffron/20 align-baseline break-words [overflow-wrap:anywhere]"
+              className="inline rounded bg-[#FFF2E6] px-1 py-0.5 font-bold text-saffron  border-saffron/20 align-baseline break-words [overflow-wrap:anywhere]"
             >
               {part}
             </mark>

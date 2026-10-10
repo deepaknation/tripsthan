@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Parallax from "@/components/Parallax";
 import { FLEET, FLEET_CATEGORIES } from "@/lib/cars";
 import { C, tel, wa } from "@/lib/data";
 
@@ -20,52 +21,85 @@ export default function CarServicePage() {
 
   return (
     <main className="bg-[#FAF7F2] min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#F7EFE4] py-16 sm:py-20 border-b border-[#EAE0D2]">
-        <div className="mx-auto max-w-6xl px-5 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-[#8E2818]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#8E2818]">
+      {/* Visual Photo Banner */}
+      <Parallax
+        img="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=85"
+        priority
+        h="min-h-[46vh] sm:min-h-[52vh]"
+      >
+        <div className="mx-auto max-w-4xl text-center px-4">
+          <span className="inline-block rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white border border-white/25 mb-3.5 shadow-sm">
             TripSthan Fleet & Chauffeur Hire
           </span>
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-[#8E2818] sm:text-5xl lg:text-6xl">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg tracking-tight">
             Hire Luxury Car & Tempo Traveller
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-[#4A3E35] sm:text-lg leading-relaxed">
-            Travel India your way with our spotless, well-maintained fleet and verified English-speaking chauffeurs. Every booking includes <strong>Driver, State Taxes, Fuel, Tolls, and Doorstep Pickup/Drop</strong>.
+          <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base md:text-lg text-white/90 leading-relaxed drop-shadow">
+            Travel India your way with our spotless, well-maintained fleet and verified English-speaking chauffeurs. Every booking includes <strong className="text-amber-300 font-semibold">Driver, State Taxes, Fuel, Tolls, and Doorstep Pickup/Drop</strong>.
           </p>
+        </div>
+      </Parallax>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              href={`${wa}?text=${encodeURIComponent("Hello Tripsthan, I would like to book a car / tempo traveller.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#8E2818] px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#8E2818]/25 transition hover:bg-[#721F11]"
+      {/* Value Badges with Real SVG Vector Icons */}
+      <section className="relative z-10 -mt-8 sm:-mt-10 mx-auto max-w-5xl px-5">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+          {[
+            {
+              title: "All Inclusive",
+              desc: "Driver + Fuel + Taxes + Tolls",
+              iconBg: "bg-emerald-50 text-emerald-600 border border-emerald-200/60",
+              icon: (
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
+              ),
+            },
+            {
+              title: "Expert Chauffeurs",
+              desc: "Courteous & Route Experts",
+              iconBg: "bg-amber-50 text-amber-700 border border-amber-200/60",
+              icon: (
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9" />
+                  <circle cx="12" cy="12" r="3" />
+                  <path strokeLinecap="round" d="M12 3v6m0 6v6M3 12h6m6 0h6" />
+                </svg>
+              ),
+            },
+            {
+              title: "Chilled Dual AC",
+              desc: "Spotless Sanitized Cabins",
+              iconBg: "bg-sky-50 text-sky-600 border border-sky-200/60",
+              icon: (
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v18m-9-9h18m-4.5-6.5l-9 9m0-9l9 9" />
+                  <circle cx="12" cy="12" r="2" fill="currentColor" />
+                </svg>
+              ),
+            },
+            {
+              title: "Doorstep Service",
+              desc: "Airport, Hotel & Home Pickup",
+              iconBg: "bg-rose-50 text-[#8E2818] border border-rose-200/60",
+              icon: (
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+              ),
+            },
+          ].map((b) => (
+            <div
+              key={b.title}
+              className="rounded-2xl bg-white p-4 sm:p-5 shadow-lg border border-[#EAE0D2] flex flex-col items-center text-center transition hover:shadow-xl hover:-translate-y-0.5 duration-200"
             >
-              Enquire on WhatsApp
-              <span>→</span>
-            </a>
-            <a
-              href={tel(C.phones[0])}
-              className="inline-flex items-center gap-2 rounded-full border-2 border-[#8E2818]/30 bg-white px-7 py-3.5 text-base font-semibold text-[#8E2818] shadow-sm transition hover:border-[#8E2818] hover:bg-stone-50"
-            >
-              Call Us: {C.phones[0]}
-            </a>
-          </div>
-
-          {/* Value Badges */}
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 max-w-4xl mx-auto">
-            {[
-              { icon: "🛡️", title: "All Inclusive", desc: "Driver + Fuel + Taxes + Tolls" },
-              { icon: "👨‍✈️", title: "Expert Chauffeurs", desc: "Courteous & Route Experts" },
-              { icon: "❄️", title: "Chilled Dual AC", desc: "Spotless Sanitized Cabins" },
-              { icon: "📍", title: "Doorstep Service", desc: "Airport, Hotel & Home Pickup" },
-            ].map((b) => (
-              <div key={b.title} className="rounded-2xl bg-white/80 p-3.5 shadow-sm border border-[#EAE0D2]">
-                <span className="text-2xl">{b.icon}</span>
-                <p className="mt-1 text-sm font-bold text-ink">{b.title}</p>
-                <p className="text-xs text-body">{b.desc}</p>
+              <div className={`grid h-11 w-11 sm:h-12 sm:w-12 place-items-center rounded-xl ${b.iconBg}`}>
+                {b.icon}
               </div>
-            ))}
-          </div>
+              <p className="mt-2.5 text-xs sm:text-sm font-bold text-ink">{b.title}</p>
+              <p className="mt-0.5 text-[11px] sm:text-xs text-stone-500 leading-tight">{b.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -73,8 +107,8 @@ export default function CarServicePage() {
       <section className="mx-auto max-w-6xl px-5 py-14 sm:py-20">
         <div className="text-center">
           <h2 className="text-2xl sm:text-4xl font-bold text-ink">Choose Your Perfect Travel Vehicle</h2>
-          <p className="mt-2 text-sm sm:text-base text-body">
-            From city sedans for couples to luxury 17-seat Urbania and 26-seat Travellers for large family delegations.
+          <p className="mt-2 text-sm sm:text-base text-body max-w-2xl mx-auto">
+            From comfortable city sedans for couples to luxury Innova Crysta and 17-seat Force Urbania for group travel.
           </p>
 
           {/* Category Tabs */}
@@ -103,7 +137,7 @@ export default function CarServicePage() {
           </div>
         </div>
 
-        {/* Vehicles Grid */}
+        {/* Vehicles Grid - 4 Curated Options */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {filteredFleet.map((vehicle) => (
             <article
