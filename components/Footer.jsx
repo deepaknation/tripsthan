@@ -284,7 +284,7 @@ export default function Footer() {
 
       {/* Copyright row */}
       <div className="mx-auto max-w-7xl px-6 md:px-12 flex flex-col sm:flex-row justify-between items-center text-xs text-[#7A6A5E] pt-10 pb-4 border-t border-[#DECFC0]/70 mt-12 relative z-10">
-        <p>© {new Date().getFullYear()} TripSthan Tours Pvt. Ltd. All Rights Reserved.</p>
+        <p>© {new Date().getFullYear()} TripSthan. All Rights Reserved.</p>
         <p className="hidden sm:block">Recognized Travel Agency & Private Tourist Cab Service</p>
       </div>
 
