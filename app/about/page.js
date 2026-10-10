@@ -47,17 +47,18 @@ export default function AboutPage() {
       </section>
 
       {/* About Our Founder - Sonu Chouhan */}
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      {/* About Our Founder - Sonu Chouhan */}
+      <section className="mx-auto max-w-5xl px-5 py-14 sm:py-18">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
           {/* Left Column: Founder Bio */}
-          <div className="lg:col-span-7 space-y-5">
+          <div className="md:col-span-7 space-y-4">
             <div className="inline-block rounded-full bg-saffron/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-saffron">
               About Our Founder
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-ink tracking-tight">
               Sonu Chouhan
             </h2>
-            <div className="space-y-4 text-sm sm:text-base text-stone-700 leading-relaxed">
+            <div className="space-y-3.5 text-sm sm:text-base text-stone-700 leading-relaxed">
               <p>
                 For over 20 years, Sonu Chouhan has spent his life on the road across India — driving, guiding, and getting to know this country one journey at a time. What started as simply getting travelers from one destination to the next slowly became something more: a deep understanding of what actually makes a trip memorable.
               </p>
@@ -70,56 +71,56 @@ export default function AboutPage() {
             </div>
 
             {/* Founder Metrics */}
-            <div className="grid grid-cols-3 gap-3 pt-4 border-t border-stone-200">
-              <div className="rounded-xl bg-white p-3 border border-stone-200 shadow-xs text-center">
-                <span className="block text-2xl font-extrabold text-saffron">20+</span>
-                <span className="text-xs text-stone-600">Years on Road</span>
+            <div className="grid grid-cols-3 gap-3 pt-3 border-t border-stone-200">
+              <div className="rounded-xl bg-white p-2.5 sm:p-3 border border-stone-200 shadow-xs text-center">
+                <span className="block text-xl sm:text-2xl font-extrabold text-saffron">20+</span>
+                <span className="text-[11px] sm:text-xs text-stone-600">Years on Road</span>
               </div>
-              <div className="rounded-xl bg-white p-3 border border-stone-200 shadow-xs text-center">
-                <span className="block text-2xl font-extrabold text-saffron">5,000+</span>
-                <span className="text-xs text-stone-600">Happy Guests</span>
+              <div className="rounded-xl bg-white p-2.5 sm:p-3 border border-stone-200 shadow-xs text-center">
+                <span className="block text-xl sm:text-2xl font-extrabold text-saffron">5,000+</span>
+                <span className="text-[11px] sm:text-xs text-stone-600">Happy Guests</span>
               </div>
-              <div className="rounded-xl bg-white p-3 border border-stone-200 shadow-xs text-center">
-                <span className="block text-2xl font-extrabold text-amber-500">★ 4.9</span>
-                <span className="text-xs text-stone-600">Guest Rating</span>
+              <div className="rounded-xl bg-white p-2.5 sm:p-3 border border-stone-200 shadow-xs text-center">
+                <span className="block text-xl sm:text-2xl font-extrabold text-amber-500">★ 4.9</span>
+                <span className="text-[11px] sm:text-xs text-stone-600">Guest Rating</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Founder Pull Quote Card & Image */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-stone-200/80">
+          {/* Right Column: Founder Portrait Image */}
+          <div className="md:col-span-5 flex justify-center">
+            <div className="relative aspect-[3/4] w-full max-w-[340px] md:max-w-none rounded-2xl overflow-hidden shadow-xl border border-stone-200/80">
               <Image
                 src="/founder-sonu-chouhan.jpg"
                 alt="TripSthan Founder Sonu Chouhan"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-top"
               />
             </div>
+          </div>
+        </div>
 
-            {/* Pull Quote Card */}
-            <div className="relative rounded-2xl bg-gradient-to-br from-[#261E19] to-[#3A2E26] p-6 sm:p-7 text-white shadow-xl border border-white/10">
-              <svg
-                className="h-8 w-8 text-saffron/40 mb-3"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-              <p className="text-sm sm:text-base italic text-stone-200 leading-relaxed">
-                “After 20 years on the road, I've learned that people don't remember every fort or palace they visited — they remember the conversations, the food, the small moments with local people along the way. That's what we try to build into every TripSthan itinerary.”
-              </p>
-              <div className="mt-4 pt-3 border-t border-white/15">
-                <p className="font-bold text-white text-sm">
-                  — Sonu Chouhan
-                </p>
-                <p className="text-xs text-[#E8DFC8]">
-                  Founder, TripSthan
-                </p>
-              </div>
-            </div>
+        {/* Pull Quote Card */}
+        <div className="mt-8 sm:mt-10 relative rounded-2xl bg-gradient-to-br from-[#261E19] to-[#3A2E26] p-6 sm:p-8 text-white shadow-xl border border-white/10">
+          <svg
+            className="h-7 w-7 text-saffron/40 mb-2.5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p className="text-sm sm:text-base italic text-stone-200 leading-relaxed">
+            “After 20 years on the road, I've learned that people don't remember every fort or palace they visited — they remember the conversations, the food, the small moments with local people along the way. That's what we try to build into every TripSthan itinerary.”
+          </p>
+          <div className="mt-4 pt-3 border-t border-white/15">
+            <p className="font-bold text-white text-sm">
+              — Sonu Chouhan
+            </p>
+            <p className="text-xs text-[#E8DFC8]">
+              Founder, TripSthan
+            </p>
           </div>
         </div>
       </section>

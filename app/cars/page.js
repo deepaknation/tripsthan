@@ -1,19 +1,11 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Parallax from "@/components/Parallax";
-import { FLEET, FLEET_CATEGORIES } from "@/lib/cars";
+import { FLEET } from "@/lib/cars";
 import { C, tel, wa } from "@/lib/data";
 
 export default function CarServicePage() {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredFleet =
-    activeCategory === "all"
-      ? FLEET
-      : FLEET.filter((car) => car.category === activeCategory);
-
   const getWaLink = (vehicleName) =>
     `${wa}?text=${encodeURIComponent(
       `Hello TripSthan, I would like to inquire about booking the ${vehicleName} with driver for my trip. Please share availability and best quote.`
@@ -23,7 +15,7 @@ export default function CarServicePage() {
     <main className="bg-[#FAF7F2] min-h-screen">
       {/* Visual Photo Banner */}
       <Parallax
-        img="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=85"
+        img="/cars/force-urbania.jpg"
         priority
         h="min-h-[46vh] sm:min-h-[52vh]"
       >
@@ -110,36 +102,11 @@ export default function CarServicePage() {
           <p className="mt-2 text-sm sm:text-base text-body max-w-2xl mx-auto">
             From comfortable city sedans for couples to luxury Innova Crysta and 17-seat Force Urbania for group travel.
           </p>
-
-          {/* Category Tabs */}
-          <div className="mt-8 flex flex-wrap justify-center gap-2 sm:gap-3">
-            {FLEET_CATEGORIES.map((cat) => {
-              const count =
-                cat.id === "all"
-                  ? FLEET.length
-                  : FLEET.filter((c) => c.category === cat.id).length;
-              const isActive = activeCategory === cat.id;
-
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
-                    isActive
-                      ? "bg-[#8E2818] text-white shadow-md shadow-[#8E2818]/25 scale-105"
-                      : "bg-white text-ink border border-line hover:border-[#8E2818]/50 hover:bg-stone-50"
-                  }`}
-                >
-                  {cat.name} ({count})
-                </button>
-              );
-            })}
-          </div>
         </div>
 
-        {/* Vehicles Grid - 4 Curated Options */}
+        {/* Vehicles Grid - All 4 Curated Options (No Filter Buttons) */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {filteredFleet.map((vehicle) => (
+          {FLEET.map((vehicle) => (
             <article
               key={vehicle.id}
               className="group flex flex-col overflow-hidden rounded-2xl bg-white border border-[#EAE0D2] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
