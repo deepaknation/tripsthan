@@ -22,42 +22,42 @@ export default function PackageCard({ p, i = 0 }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
           {/* Duration Badge */}
-          <span className="absolute left-2.5 top-2.5 sm:left-3 sm:top-3 inline-flex items-center gap-1.5 rounded-full bg-black/75 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-semibold text-white shadow-sm backdrop-blur-md">
+          <span className="absolute left-2 top-2 sm:left-3 sm:top-3 max-w-[58%] inline-flex items-center gap-1.5 rounded-full bg-black/75 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-semibold text-white shadow-sm backdrop-blur-md">
             <svg className="w-3.5 h-3.5 text-amber-300 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
-            <span>{p.duration || `${p.days} ${p.days > 1 ? "Days" : "Day"}`}</span>
+            <span className="truncate">{p.duration || `${p.days} ${p.days > 1 ? "Days" : "Day"}`}</span>
           </span>
 
           {/* Region / Category Badge */}
-          <span className="absolute right-2.5 top-2.5 sm:right-3 sm:top-3 rounded-full bg-saffron px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-semibold text-white shadow-sm">
+          <span className="absolute right-2 top-2 sm:right-3 sm:top-3 max-w-[40%] truncate rounded-full bg-saffron px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-semibold text-white shadow-sm text-center">
             {p.reg || p.category || "Tour"}
           </span>
 
         </Link>
 
         {/* Card Body */}
-        <div className="flex flex-1 flex-col p-4 sm:p-5">
+        <div className="flex flex-1 flex-col p-4 sm:p-5 min-w-0">
           {/* Title */}
-          <h3 className="text-sm sm:text-base font-bold leading-snug text-ink transition-colors duration-200 group-hover:text-saffron">
+          <h3 className="text-sm sm:text-base font-bold leading-snug text-ink transition-colors duration-200 group-hover:text-saffron break-words [overflow-wrap:anywhere]">
             <Link href={href} className="hover:underline">
               {p.title}
             </Link>
           </h3>
 
           {/* Overview snippet with Highlighted SEO Keywords */}
-          <p className="mt-2 line-clamp-3 text-xs sm:text-sm leading-relaxed text-stone-600">
+          <p className="mt-2 line-clamp-3 text-xs sm:text-sm leading-relaxed text-stone-600 break-words [overflow-wrap:anywhere]">
             <HighlightedText text={p.overview} />
           </p>
 
           {/* Quick Highlights Snippets (First 2 highlights) */}
           {p.highlights && p.highlights.length > 0 && (
-            <ul className="mt-3 space-y-1 border-t border-stone-100 pt-3 text-xs text-stone-700">
+            <ul className="mt-3 space-y-1 border-t border-stone-100 pt-3 text-xs text-stone-700 min-w-0">
               {p.highlights.slice(0, 2).map((h, idx) => (
-                <li key={idx} className="flex items-start gap-1.5 line-clamp-1">
+                <li key={idx} className="flex items-start gap-1.5 min-w-0">
                   <span className="text-emerald-600 font-bold shrink-0">✓</span>
-                  <span className="truncate">{h}</span>
+                  <span className="truncate min-w-0">{h}</span>
                 </li>
               ))}
             </ul>

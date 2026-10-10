@@ -143,8 +143,8 @@ export default function ArtisticHero() {
       </div>
 
       {/* Main Foreground Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 md:px-12 py-16 sm:py-20 w-full flex flex-col justify-center">
-        <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 md:px-12 py-16 sm:py-20 w-full flex flex-col justify-center overflow-hidden">
+        <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0 w-full">
           
           {/* Top Badge & Location Pill */}
           <motion.div
@@ -152,7 +152,7 @@ export default function ArtisticHero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-4"
+            className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-4 max-w-full"
           >
             <span className="inline-flex items-center gap-1.5 rounded-full bg-saffron px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-sm">
               <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 20 20">
@@ -160,11 +160,11 @@ export default function ArtisticHero() {
               </svg>
               <span>{slide.badge}</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-md px-3.5 py-1 text-xs font-semibold text-white/95 border border-white/25">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-md px-3.5 py-1 text-xs font-semibold text-white/95 border border-white/25 max-w-full">
               <svg className="w-3.5 h-3.5 text-amber-300 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
               </svg>
-              <span>{slide.location}</span>
+              <span className="truncate max-w-[200px] sm:max-w-none">{slide.location}</span>
             </span>
           </motion.div>
 
@@ -174,7 +174,7 @@ export default function ArtisticHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-md"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-md break-words"
           >
             {slide.title}
           </motion.h1>
@@ -185,7 +185,7 @@ export default function ArtisticHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg leading-relaxed text-stone-200 drop-shadow line-clamp-3 sm:line-clamp-none max-w-xl mx-auto md:mx-0"
+            className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg leading-relaxed text-stone-200 drop-shadow line-clamp-3 sm:line-clamp-none max-w-xl mx-auto md:mx-0 break-words"
           >
             {slide.desc}
           </motion.p>

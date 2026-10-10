@@ -94,7 +94,7 @@ export default function HighlightedText({
   const parts = text.split(regex);
 
   return (
-    <span className={className}>
+    <span className={`break-words [overflow-wrap:anywhere] ${className}`}>
       {parts.map((part, i) => {
         const isMatch = keywords.some(
           (k) => k.toLowerCase() === part.toLowerCase()
@@ -103,7 +103,7 @@ export default function HighlightedText({
           return (
             <mark
               key={i}
-              className="inline rounded bg-[#FFF2E6] px-1 py-0.5 font-bold text-saffron border border-saffron/20 align-baseline"
+              className="inline rounded bg-[#FFF2E6] px-1 py-0.5 font-bold text-saffron border border-saffron/20 align-baseline break-words [overflow-wrap:anywhere]"
             >
               {part}
             </mark>

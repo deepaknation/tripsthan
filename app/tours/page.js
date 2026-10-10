@@ -26,8 +26,8 @@ export default function ToursPage() {
         </div>
       </Parallax>
 
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-[#EAE0D2]">
+      <section className="mx-auto max-w-6xl px-5 py-16 overflow-hidden w-full max-w-full">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-[#EAE0D2] w-full max-w-full">
           <div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-ink">
               All Tour Packages ({packages.length})
@@ -49,7 +49,7 @@ export default function ToursPage() {
           </div>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-full">
           {packages.map((p, i) => (
             <PackageCard key={p.slug} p={p} i={i % 3} />
           ))}

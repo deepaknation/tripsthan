@@ -27,14 +27,14 @@ const Head = ({ t, s }) => (
 
 export function Offers() {
   return (
-    <section className="bg-[#FAF7F2] py-16 sm:py-20 border-b border-[#EAE0D2]">
-      <div className="mx-auto max-w-7xl px-5">
+    <section className="bg-[#FAF7F2] py-16 sm:py-20 border-b border-[#EAE0D2] overflow-hidden w-full max-w-full">
+      <div className="mx-auto max-w-7xl px-5 w-full max-w-full">
         <Head
           t="Our Special Offers"
           s="Handcrafted itineraries featuring private AC chauffeur transport, verified local guides, and flexible customization."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-full">
           {featured.map((p, i) => (
             <PackageCard key={p.slug} p={p} i={i} />
           ))}
@@ -49,8 +49,8 @@ export function Destinations() {
   const [selectedReg, setSelectedReg] = useState(R[0]);
 
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:py-20 overflow-hidden w-full">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:py-20 overflow-hidden w-full max-w-full">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 w-full max-w-full">
         <div>
           <span className="inline-block rounded-full bg-[#8E2818]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#8E2818] mb-2">
             Explore By Region
@@ -69,7 +69,7 @@ export function Destinations() {
       </div>
 
       {/* Region Filter Chips */}
-      <div className="w-full max-w-full overflow-x-auto pb-3 mb-8 flex gap-2.5 scrollbar-none">
+      <div className="w-full max-w-full overflow-x-auto pb-3 mb-8 flex gap-2.5 overscroll-x-contain touch-pan-x">
         {R.map((x) => (
           <Chip key={x} on={selectedReg === x} onClick={() => setSelectedReg(x)}>
             {x}
