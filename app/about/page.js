@@ -88,13 +88,14 @@ export default function AboutPage() {
 
           {/* Right Column: Founder Pull Quote Card & Image */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-stone-200">
+            <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-stone-200/80">
               <Image
-                src="/why-choose-tripsthan.jpg"
-                alt="TripSthan Founder Sonu Chouhan and Travel Fleet"
+                src="/founder-sonu-chouhan.jpg"
+                alt="TripSthan Founder Sonu Chouhan"
                 fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
 
