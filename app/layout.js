@@ -12,14 +12,17 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "TripSthan – Explore India Your Way",
+  title: "TripSthan | Private India Tours, Tour Packages and Car Hire",
   description:
-    "Golden Triangle Tour India, Private Delhi Agra Jaipur Cab, Himachal Holiday Package and Same Day Taj Mahal Tour by Car.",
+    "Private India tours and car hire with driver. Golden Triangle, Rajasthan, Himachal and more, planned by a team with 20+ years on India’s roads.",
   keywords: [
+    "TripSthan",
+    "Private India Tours",
+    "India Tour Packages",
+    "Car Hire India",
     "Golden Triangle Tour India",
-    "Private Delhi Agra Jaipur Cab",
+    "Rajasthan Tour",
     "Himachal Holiday Package",
-    "Same Day Taj Mahal Tour by Car",
   ],
   icons: {
     icon: [{ url: "/favicon.png" }, { url: "/favicon.ico" }],

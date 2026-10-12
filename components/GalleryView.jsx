@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { GALLERY_ITEMS } from "@/lib/galleryData";
 import { C, tel, wa } from "@/lib/data";
+import { ZoomIn, ZoomOut, X, ChevronLeft, ChevronRight, Phone, MessageCircle } from "lucide-react";
 
 export default function GalleryView() {
   const [visibleCount, setVisibleCount] = useState(24);
@@ -161,19 +162,7 @@ export default function GalleryView() {
               {/* Minimalist Hover Overlay with subtle zoom icon */}
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                 <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white/90 text-stone-900 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
-                  <svg
-                    className="h-5 w-5 sm:h-6 sm:w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"
-                    />
-                  </svg>
+                  <ZoomIn className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
                 </div>
               </div>
             </div>
@@ -225,9 +214,7 @@ export default function GalleryView() {
                   title="Zoom In"
                   className="rounded-full p-2 text-white/80 hover:bg-white/15 hover:text-white transition"
                 >
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
+                  <ZoomIn className="h-5 w-5" strokeWidth={2} />
                 </button>
 
                 {/* Zoom Level Indicator */}
@@ -245,9 +232,7 @@ export default function GalleryView() {
                   title="Zoom Out"
                   className="rounded-full p-2 text-white/80 hover:bg-white/15 hover:text-white transition"
                 >
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                  </svg>
+                  <ZoomOut className="h-5 w-5" strokeWidth={2} />
                 </button>
 
                 {/* Close (X) */}
@@ -256,9 +241,7 @@ export default function GalleryView() {
                   title="Close (Esc)"
                   className="ml-2 rounded-full bg-white/15 p-2 text-white hover:bg-red-600 transition"
                 >
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <X className="h-5 w-5" strokeWidth={2.5} />
                 </button>
               </div>
             </div>
@@ -288,9 +271,7 @@ export default function GalleryView() {
                 title="Previous Photo"
                 className="absolute left-3 sm:left-6 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-lg hover:bg-saffron transition-all"
               >
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-                </svg>
+                <ChevronLeft className="h-6 w-6" strokeWidth={2.5} />
               </button>
 
               {/* The Active Image */}
@@ -327,9 +308,7 @@ export default function GalleryView() {
                 title="Next Photo"
                 className="absolute right-3 sm:right-6 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-lg hover:bg-saffron transition-all"
               >
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                </svg>
+                <ChevronRight className="h-6 w-6" strokeWidth={2.5} />
               </button>
             </div>
 
@@ -347,9 +326,7 @@ export default function GalleryView() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2 text-xs sm:text-sm font-semibold text-white shadow hover:brightness-110 transition active:scale-95"
                   >
-                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
-                    </svg>
+                    <MessageCircle className="h-4 w-4" strokeWidth={2.5} />
                     <span>Inquire on WhatsApp</span>
                   </a>
 
@@ -357,9 +334,7 @@ export default function GalleryView() {
                     href={tel(C.phones[0])}
                     className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-4 py-2 text-xs sm:text-sm font-semibold text-white hover:bg-white/25 transition active:scale-95"
                   >
-                    <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" />
-                    </svg>
+                    <Phone className="h-3.5 w-3.5" strokeWidth={2.5} />
                     <span>Call Us</span>
                   </a>
                 </div>

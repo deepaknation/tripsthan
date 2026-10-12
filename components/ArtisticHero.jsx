@@ -1,49 +1,71 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Star, Compass, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const SLIDES = [
   {
     id: 1,
-    image: "/hero-taj-sunrise.jpg",
-    badge: "Explore India With TripSthan",
-    location: "Agra & Golden Triangle",
-    title: "Explore India Beyond The Guidebooks",
-    desc: "Discover timeless heritage, royal palaces, and Himalayan peaks with TripSthan. Private AC cabs, tailor-made holiday packages, and certified local guides.",
+    image: "/private-india-tours-taj-mahal-agra.webp",
+    alt: "Taj Mahal at sunrise on a private India tour from Delhi",
+    badge: "PRIVATE INDIA TOURS | Delhi, Agra & Jaipur",
+    title: "Explore India Your Way – Private India Tours with 20+ Years of Road Experience",
+    isH1: true,
+    subline:
+      "Travel India with a private car, an experienced driver and local guides. From the Taj Mahal to Rajasthan and the Himalayas, every trip is planned around you.",
+    buttonText: "Plan My Trip",
+    buttonLink: "/contact",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1920&q=85",
-    badge: "Royal Rajputana Circuits",
-    location: "Jaipur, Jodhpur & Udaipur",
+    image: "/rajasthan-tour-packages-hawa-mahal-jaipur.webp",
+    alt: "Hawa Mahal Jaipur, part of our Rajasthan tour packages",
+    badge: "ROYAL RAJPUTANA CIRCUITS | Jaipur, Jodhpur & Udaipur",
     title: "Step Into Royal Palaces & Golden Sands",
-    desc: "From Jaipur's honeycomb Hawa Mahal to Jaisalmer Thar desert camps and romantic lakeside palaces with courteous private chauffeurs.",
+    isH1: false,
+    subline:
+      "From Jaipur’s Hawa Mahal to Jaisalmer’s desert camps and Udaipur’s lakeside palaces, explore Rajasthan tour packages with a private driver.",
+    buttonText: "Explore Rajasthan Tours",
+    buttonLink: "/tours",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1920&q=85",
-    badge: "Himalayan Hill Stations",
-    location: "Shimla, Manali & Dharamshala",
-    title: "Breathe The Cool Air of Himalayan Peaks",
-    desc: "Escape to pine-covered valleys, snow-capped Rohtang Pass excursions, and colonial mountain charm with comfortable all-inclusive private vehicles.",
+    image: "/shimla-manali-tour-himachal-mountains.webp",
+    alt: "Snow-covered mountains near Manali on a Himachal tour",
+    badge: "HIMALAYAN ESCAPES | Shimla, Manali & Dharamshala",
+    title: "Cool Hills, Snowy Peaks & Mountain Roads",
+    isH1: false,
+    subline:
+      "Take a relaxed Himachal tour with a private car and a driver who knows every mountain road.",
+    buttonText: "View Himachal Tours",
+    buttonLink: "/tours",
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1920&q=85",
-    badge: "Sacred Spiritual Journeys",
-    location: "Varanasi, Haridwar & Rishikesh",
-    title: "Experience The Sacred Soul of India",
-    desc: "Witness the mesmerizing evening Ganga Aarti, sunrise boat rituals on the holy river, and tranquil yoga retreats in the Himalayan foothills.",
+    image: "/ganga-tour-rishikesh-haridwar-varanasi.webp",
+    alt: "Evening Ganga Aarti on a spiritual India tour",
+    badge: "SPIRITUAL JOURNEYS | Rishikesh, Haridwar & Varanasi",
+    title: "Walk Along the Holy Ganges",
+    isH1: false,
+    subline:
+      "Experience the sacred side of India with quiet mornings by the river, evening aarti and a slower pace of travel.",
+    buttonText: "Explore Spiritual Tours",
+    buttonLink: "/tours",
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1920&q=85",
-    badge: "Wildlife & Jungle Safari",
-    location: "Ranthambore & Bharatpur",
-    title: "Track Royal Bengal Tigers in The Wild",
-    desc: "Exciting open-jeep tiger safaris in Ranthambore and UNESCO birdwatching in Keoladeo paired with iconic North India heritage circuits.",
+    image: "/ranthambore-tiger-safari-tour.webp",
+    alt: "Bengal tiger in Ranthambore National Park on a wildlife tour",
+    badge: "WILDLIFE SAFARIS | Ranthambore National Park",
+    title: "Tigers, Forts & Wild India",
+    isH1: false,
+    subline:
+      "Add a Ranthambore tiger safari to your heritage route, with a private driver and a plan built around you.",
+    buttonText: "Explore Wildlife Tours",
+    buttonLink: "/tours",
   },
 ];
 
@@ -53,7 +75,7 @@ export default function ArtisticHero() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Preload slides for smooth, instant transitions
+  // Preload slides for smooth instant transitions
   useEffect(() => {
     SLIDES.forEach((slide) => {
       if (typeof window !== "undefined" && slide.image) {
@@ -63,12 +85,12 @@ export default function ArtisticHero() {
     });
   }, []);
 
-  // Continuous auto-play slider (advances every 4.5 seconds)
+  // Continuous auto-play slider (advances every 5.5 seconds)
   useEffect(() => {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrent((prev) => (prev + 1) % SLIDES.length);
-    }, 4500);
+    }, 5500);
 
     return () => clearInterval(timer);
   }, [current]);
@@ -88,7 +110,6 @@ export default function ArtisticHero() {
     setCurrent((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
   };
 
-  // Touch Swipe Handlers for Mobile
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -99,9 +120,9 @@ export default function ArtisticHero() {
 
   const handleTouchEnd = () => {
     if (touchStartX.current - touchEndX.current > 50) {
-      nextSlide(); // Swiped left -> next
+      nextSlide();
     } else if (touchEndX.current - touchStartX.current > 50) {
-      prevSlide(); // Swiped right -> prev
+      prevSlide();
     }
   };
 
@@ -109,7 +130,7 @@ export default function ArtisticHero() {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#1F1814] text-white min-h-[580px] sm:min-h-[640px] md:min-h-[700px] lg:h-[calc(100vh-80px)] lg:max-h-[820px] flex items-center select-none"
+      className="relative overflow-hidden bg-[#1F1814] text-white min-h-[600px] sm:min-h-[660px] md:min-h-[720px] lg:h-[calc(100vh-80px)] lg:max-h-[840px] flex items-center select-none"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -128,7 +149,7 @@ export default function ArtisticHero() {
           >
             <Image
               src={slide.image}
-              alt={slide.title}
+              alt={slide.alt}
               fill
               priority={current === 0}
               sizes="100vw"
@@ -138,15 +159,15 @@ export default function ArtisticHero() {
         </AnimatePresence>
 
         {/* Cinematic Multi-stop Gradient Scrim */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent hidden md:block" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent hidden md:block" />
       </div>
 
       {/* Main Foreground Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 md:px-12 py-16 sm:py-20 w-full flex flex-col justify-center overflow-hidden">
-        <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0 w-full">
+        <div className="max-w-3xl text-center md:text-left mx-auto md:mx-0 w-full">
           
-          {/* Top Badge & Location Pill */}
+          {/* Top Badge */}
           <motion.div
             key={`badge-${slide.id}`}
             initial={{ opacity: 0, y: 15 }}
@@ -154,30 +175,34 @@ export default function ArtisticHero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-4 max-w-full"
           >
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-saffron px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-sm">
-              <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-saffron px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm border border-saffron/40">
+              <Star className="w-3.5 h-3.5 fill-current shrink-0" />
               <span>{slide.badge}</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-md px-3.5 py-1 text-xs font-semibold text-white/95 border border-white/25 max-w-full">
-              <svg className="w-3.5 h-3.5 text-amber-300 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-              </svg>
-              <span className="truncate max-w-[200px] sm:max-w-none">{slide.location}</span>
             </span>
           </motion.div>
 
-          {/* Primary H1 Headline */}
-          <motion.h1
-            key={`title-${slide.id}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-md break-words"
-          >
-            {slide.title}
-          </motion.h1>
+          {/* Headline (H1 on Slide 1, H2 on Slides 2-5) */}
+          {slide.isH1 ? (
+            <motion.h1
+              key={`title-${slide.id}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-md break-words"
+            >
+              {slide.title}
+            </motion.h1>
+          ) : (
+            <motion.h2
+              key={`title-${slide.id}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-md break-words"
+            >
+              {slide.title}
+            </motion.h2>
+          )}
 
           {/* Subtitle Description */}
           <motion.p
@@ -185,42 +210,28 @@ export default function ArtisticHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg leading-relaxed text-stone-200 drop-shadow line-clamp-3 sm:line-clamp-none max-w-xl mx-auto md:mx-0 break-words"
+            className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg leading-relaxed text-stone-200 drop-shadow max-w-2xl mx-auto md:mx-0 break-words font-normal"
           >
-            {slide.desc}
+            {slide.subline}
           </motion.p>
 
-          {/* Single Primary Call-to-Action */}
-          <div className="mt-6 flex justify-center md:justify-start">
+          {/* Call to Action Button */}
+          <div className="mt-5 sm:mt-6 flex justify-center md:justify-start">
             <Link
-              href="/tours"
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-saffron bg-[#FFF5EC] px-6 py-2.5 text-xs sm:text-sm font-bold text-saffron shadow-md transition-all duration-300 hover:bg-saffron hover:text-white hover:shadow-lg active:scale-95 cursor-pointer"
+              href={slide.buttonLink}
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-saffron bg-white/95 backdrop-blur-sm px-5 py-2.5 text-xs sm:text-sm font-bold text-saffron shadow-md transition-all duration-200 hover:bg-saffron hover:text-white hover:shadow-lg active:scale-95 cursor-pointer"
             >
-              <span>Explore Tour Packages</span>
-              <span className="text-base transition-transform duration-300 group-hover:translate-x-1.5">
-                →
-              </span>
+              <Compass className="w-4 h-4 text-saffron group-hover:text-white transition-colors" />
+              <span>{slide.buttonText}</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
-          </div>
-
-          {/* Micro Trust Points */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 mt-6 pt-5 border-t border-white/15 text-xs text-white/90">
-            <span className="flex items-center gap-1.5 font-medium">
-              <span className="text-emerald-400 font-bold">✓</span> Private AC Cabs
-            </span>
-            <span className="flex items-center gap-1.5 font-medium">
-              <span className="text-emerald-400 font-bold">✓</span> Verified Chauffeurs
-            </span>
-            <span className="flex items-center gap-1.5 font-medium">
-              <span className="text-amber-400 font-bold">★</span> 4.9/5 Rating (5,000+ Guests)
-            </span>
           </div>
 
         </div>
       </div>
 
-      {/* Slide Navigation Dots / Indicators with Animated Progress Pill */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 sm:gap-3 bg-black/45 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-lg">
+      {/* Slide Navigation Dots / Indicators */}
+      <div className="absolute bottom-13 sm:bottom-15 md:bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 sm:gap-3 bg-black/55 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 shadow-lg">
         {SLIDES.map((s, idx) => (
           <button
             key={s.id}
@@ -237,13 +248,13 @@ export default function ArtisticHero() {
                 key={`progress-${current}`}
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 4.5, ease: "linear" }}
+                transition={{ duration: 5.5, ease: "linear" }}
                 className="absolute inset-0 bg-saffron rounded-full"
               />
             )}
           </button>
         ))}
-        <span className="text-[11px] font-semibold text-white/85 ml-1.5 tracking-wider hidden sm:inline">
+        <span className="text-[11px] font-semibold text-white/90 ml-1.5 tracking-wider hidden sm:inline">
           {current + 1} / {SLIDES.length}
         </span>
       </div>

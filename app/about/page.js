@@ -1,16 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Compass, Users, Check, ArrowRight, Phone, Mail, Star, Quote } from "lucide-react";
 import Parallax from "@/components/Parallax";
 import HighlightedText from "@/components/HighlightedText";
 import { img } from "@/lib/images";
 import { C, tel, wa } from "@/lib/data";
 
 export const metadata = {
-  title: "About Us | TripSthan – Private India Tours & Tour Packages",
+  title: "About Us | TripSthan – Private India Tours & Car Hire",
   description:
-    "Learn about TripSthan and founder Sonu Chouhan. With over 20 years on the road, we plan private India tours and India tour packages that go beyond landmarks to real connections.",
-  keywords:
-    "India tours, India tour packages, India tour, private India tours, TripSthan about us, Sonu Chouhan, customized India trips",
+    "TripSthan plans private India tours across the country. Learn about our founder Sonu Chouhan, our 20+ years on the road and how we plan every trip.",
+  keywords: [
+    "TripSthan about us",
+    "Sonu Chouhan",
+    "private India tours",
+    "India car hire with driver",
+    "India private tour operator",
+  ],
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Us | TripSthan – Private India Tours & Car Hire",
+    description:
+      "TripSthan plans private India tours across the country. Learn about our founder Sonu Chouhan, our 20+ years on the road and how we plan every trip.",
+    url: "/about",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {
@@ -81,7 +97,10 @@ export default function AboutPage() {
                 <span className="text-[11px] sm:text-xs text-stone-600">Happy Guests</span>
               </div>
               <div className="rounded-xl bg-white p-2.5 sm:p-3 border border-stone-200 shadow-xs text-center">
-                <span className="block text-xl sm:text-2xl font-extrabold text-amber-500">★ 4.9</span>
+                <span className="flex items-center justify-center gap-1 text-xl sm:text-2xl font-extrabold text-amber-500">
+                  <Star className="w-4 h-4 text-amber-500 fill-current inline" />
+                  <span>4.9</span>
+                </span>
                 <span className="text-[11px] sm:text-xs text-stone-600">Guest Rating</span>
               </div>
             </div>
@@ -104,13 +123,7 @@ export default function AboutPage() {
 
         {/* Pull Quote Card */}
         <div className="mt-8 sm:mt-10 relative rounded-2xl bg-gradient-to-br from-[#261E19] to-[#3A2E26] p-6 sm:p-8 text-white shadow-xl border border-white/10">
-          <svg
-            className="h-7 w-7 text-saffron/40 mb-2.5"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-          </svg>
+          <Quote className="h-7 w-7 text-saffron/40 mb-2.5 fill-current" />
           <p className="text-sm sm:text-base italic text-stone-200 leading-relaxed">
             “After 20 years on the road, I've learned that people don't remember every fort or palace they visited — they remember the conversations, the food, the small moments with local people along the way. That's what we try to build into every TripSthan itinerary.”
           </p>
@@ -134,10 +147,8 @@ export default function AboutPage() {
               <div className="absolute top-0 right-0 w-28 h-28 bg-saffron/5 rounded-bl-full pointer-events-none" />
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full bg-[#8E2818]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#8E2818] mb-4">
-                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  Targeted Purpose
+                  <Compass className="h-3.5 w-3.5 text-[#8E2818]" />
+                  <span>Targeted Purpose</span>
                 </div>
                 <h3 className="text-2xl font-extrabold text-ink mb-3">Our Mission</h3>
                 <p className="text-sm sm:text-base text-stone-700 leading-relaxed">
@@ -151,10 +162,8 @@ export default function AboutPage() {
               <div className="absolute top-0 right-0 w-28 h-28 bg-[#8E2818]/5 rounded-bl-full pointer-events-none" />
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full bg-saffron/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-saffron mb-4">
-                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                  Core Belief
+                  <Users className="h-3.5 w-3.5 text-saffron" />
+                  <span>Core Belief</span>
                 </div>
                 <h3 className="text-2xl font-extrabold text-ink mb-3">Our Philosophy</h3>
                 <p className="text-sm sm:text-base text-stone-700 leading-relaxed">
@@ -189,7 +198,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-stone-200">
             <div className="flex items-start gap-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-saffron/10 text-saffron font-bold text-sm">
-                ✓
+                <Check className="h-4 w-4 text-saffron" />
               </span>
               <div>
                 <h4 className="text-sm font-bold text-ink">20+ Years on the Road</h4>
@@ -198,7 +207,7 @@ export default function AboutPage() {
             </div>
             <div className="flex items-start gap-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-saffron/10 text-saffron font-bold text-sm">
-                ✓
+                <Check className="h-4 w-4 text-saffron" />
               </span>
               <div>
                 <h4 className="text-sm font-bold text-ink">Private Sanitized Fleet</h4>
@@ -207,7 +216,7 @@ export default function AboutPage() {
             </div>
             <div className="flex items-start gap-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-saffron/10 text-saffron font-bold text-sm">
-                ✓
+                <Check className="h-4 w-4 text-saffron" />
               </span>
               <div>
                 <h4 className="text-sm font-bold text-ink">Authentic Local Insight</h4>
@@ -242,9 +251,7 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-2 rounded-full bg-saffron px-6 py-3 text-sm font-bold text-white shadow-md hover:brightness-105 transition"
                 >
                   <span>Explore Tour Packages</span>
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -265,7 +272,7 @@ export default function AboutPage() {
                   ].map((service, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#8E2818]/10 text-[#8E2818] text-xs font-bold mt-0.5">
-                        ✓
+                        <Check className="h-3.5 w-3.5" />
                       </span>
                       <span className="text-sm sm:text-base text-stone-800 font-medium leading-normal">
                         <HighlightedText text={service} />
@@ -301,28 +308,21 @@ export default function AboutPage() {
               href={tel(C.phones[0])}
               className="flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 border border-white/15 transition"
             >
-              <svg className="h-4 w-4 text-saffron" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" />
-              </svg>
+              <Phone className="h-4 w-4 text-saffron" />
               <span>{C.phones[0]}</span>
             </a>
             <a
               href={tel(C.phones[1])}
               className="flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 border border-white/15 transition"
             >
-              <svg className="h-4 w-4 text-saffron" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" />
-              </svg>
+              <Phone className="h-4 w-4 text-saffron" />
               <span>{C.phones[1]}</span>
             </a>
             <a
               href={`mailto:${C.emails[1]}`}
               className="flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 border border-white/15 transition"
             >
-              <svg className="h-4 w-4 text-saffron" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
+              <Mail className="h-4 w-4 text-saffron" />
               <span>{C.emails[1]}</span>
             </a>
           </div>

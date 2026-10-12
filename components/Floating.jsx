@@ -1,7 +1,8 @@
 "use client";
-import {C,tel,wa} from "@/lib/data";
+import { Phone } from "lucide-react";
+import { C, tel, wa } from "@/lib/data";
 
-export default function Floating(){
+export default function Floating() {
   return (
     <aside aria-label="Quick contact" className="fixed bottom-6 right-5 z-50 hidden md:flex flex-col items-end gap-3 pointer-events-none">
       {/* WhatsApp Button */}
@@ -38,13 +39,7 @@ export default function Floating(){
           aria-label="Call Tripsthan"
           className="relative flex h-13 w-13 items-center justify-center rounded-full bg-gradient-to-tr from-[#C84E00] via-saffron to-[#FF7B22] p-3 text-white shadow-xl shadow-orange-950/20 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/30 active:scale-95"
         >
-          <svg
-            className="h-6 w-6 stroke-current fill-none stroke-[2.2] stroke-linecap-round stroke-linejoin-round drop-shadow-sm"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-          </svg>
+          <Phone className="h-6 w-6 text-white drop-shadow-sm" strokeWidth={2.2} />
         </a>
       </div>
     </aside>

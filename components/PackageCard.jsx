@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { Clock, Check, ArrowRight } from "lucide-react";
 import Img from "./Img";
 import Reveal from "./Reveal";
 import HighlightedText from "./HighlightedText";
@@ -23,10 +24,7 @@ export default function PackageCard({ p, i = 0 }) {
 
           {/* Duration Badge */}
           <span className="absolute left-2 top-2 sm:left-3 sm:top-3 max-w-[58%] inline-flex items-center gap-1.5 rounded-full bg-black/75 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-semibold text-white shadow-sm backdrop-blur-md">
-            <svg className="w-3.5 h-3.5 text-amber-300 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
+            <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
             <span className="truncate">{p.duration || `${p.days} ${p.days > 1 ? "Days" : "Day"}`}</span>
           </span>
 
@@ -56,7 +54,7 @@ export default function PackageCard({ p, i = 0 }) {
             <ul className="mt-3 space-y-1 border-t border-stone-100 pt-3 text-xs text-stone-700 min-w-0">
               {p.highlights.slice(0, 2).map((h, idx) => (
                 <li key={idx} className="flex items-start gap-1.5 min-w-0">
-                  <span className="text-emerald-600 font-bold shrink-0">✓</span>
+                  <Check className="w-3.5 h-3.5 text-emerald-600 font-bold shrink-0 mt-0.5" />
                   <span className="truncate min-w-0">{h}</span>
                 </li>
               ))}
@@ -64,18 +62,16 @@ export default function PackageCard({ p, i = 0 }) {
           )}
 
           {/* Tour Package Card Button */}
-          <div className="mt-auto pt-4 border-t border-stone-100">
+          <div className="mt-auto pt-3 border-t border-stone-100">
             <Link
               href={href}
-              className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full border border-saffron bg-[#FFF5EC] px-4 py-2.5 text-xs sm:text-sm font-bold text-saffron shadow-xs transition-all duration-300 hover:bg-saffron hover:text-white hover:shadow-md active:scale-95"
+              className="group/btn inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-saffron bg-[#FFF5EC] px-3.5 py-2 text-xs sm:text-sm font-bold text-saffron shadow-2xs transition-all duration-200 hover:bg-saffron hover:text-white hover:shadow-xs active:scale-95"
             >
               <span>Explore Tour Package</span>
-              <span
+              <ArrowRight
                 aria-hidden="true"
-                className="text-sm sm:text-base transition-transform duration-300 group-hover/btn:translate-x-1"
-              >
-                →
-              </span>
+                className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-1"
+              />
             </Link>
           </div>
         </div>

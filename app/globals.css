@@ -48,8 +48,147 @@
   @apply rounded-card bg-white shadow-card border border-line;
 }
 
+/* =========================================================================
+   ANIMATED ICONS & MICRO-ANIMATION UTILITIES
+   ========================================================================= */
+@keyframes icon-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes icon-pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+@keyframes road-dash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 2px rgba(232, 93, 4, 0.3));
+  }
+  50% {
+    transform: scale(1.1) rotate(4deg);
+    filter: drop-shadow(0 0 6px rgba(232, 93, 4, 0.7));
+  }
+}
+
+@keyframes shimmer-light {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-icon-float {
+  animation: icon-float 3.5s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: icon-pulse-ring 2.8s ease-in-out infinite;
+}
+
+.animate-road-dash {
+  stroke-dasharray: 4 4;
+  animation: road-dash 1.2s linear infinite;
+}
+
+.animate-star-twinkle {
+  animation: star-twinkle 2.5s ease-in-out infinite;
+}
+
+.group:hover .group-hover-float {
+  transform: translateY(-4px);
+}
+
+.group:hover .group-hover-wiggle {
+  transform: rotate(6deg) scale(1.08);
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes phone-ring {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30% {
+    transform: rotate(-10deg);
+  }
+  20%, 40% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes airplane-glide {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(3px, -3px);
+  }
+}
+
+@keyframes bulb-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.4));
+    opacity: 0.85;
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.9));
+    opacity: 1;
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-phone-ring {
+  animation: phone-ring 2.5s ease-in-out infinite;
+}
+
+.animate-airplane-glide {
+  animation: airplane-glide 3s ease-in-out infinite;
+}
+
+.animate-bulb-glow {
+  animation: bulb-glow 2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;
+    animation: none !important;
   }
 }

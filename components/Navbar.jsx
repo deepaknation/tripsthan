@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronRight, Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { C, tel, wa } from "@/lib/data";
 
 const NAV_LINKS = [
@@ -34,7 +35,8 @@ export default function Navbar() {
         {/* Top Bar for Desktop */}
         <div className="hidden bg-[#261E19] text-xs text-[#E8DFC8] md:block">
           <div className="mx-auto flex max-w-6xl justify-between px-5 py-1.5">
-            <span>
+            <span className="flex items-center gap-1">
+              <Phone className="h-3.5 w-3.5 text-saffron inline mr-1" />
               {C.phones.map((p) => (
                 <a key={p} href={tel(p)} className="mr-4 hover:underline">
                   {p}
@@ -68,9 +70,10 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-saffron px-6 py-2 text-sm font-semibold text-white transition hover:brightness-90 active:scale-95"
+            className="group hidden md:inline-flex items-center gap-2 rounded-full bg-saffron px-6 py-2 text-sm font-semibold text-white transition hover:brightness-90 active:scale-95"
           >
-            Start Journey
+            <span>Start Journey</span>
+            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
 
           {/* Mobile Hamburger Button with Smooth Morphing to 'X' */}
@@ -129,9 +132,7 @@ export default function Navbar() {
                     aria-label="Close menu"
                     className="grid h-10 w-10 place-items-center rounded-full bg-dark text-white transition hover:bg-black active:scale-90 cursor-pointer shadow-md"
                   >
-                    <svg className="h-5 w-5 stroke-current stroke-2 fill-none" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <X className="h-5 w-5 stroke-current stroke-2" />
                   </button>
                 </div>
 
@@ -145,7 +146,7 @@ export default function Navbar() {
                         className="flex items-center justify-between rounded-xl px-4 py-3 text-base font-semibold text-ink transition-all hover:bg-white hover:text-saffron hover:shadow-sm"
                       >
                         <span>{name}</span>
-                        <span className="text-stone-400">→</span>
+                        <ChevronRight className="h-4 w-4 text-stone-400" />
                       </Link>
                     </li>
                   ))}
@@ -156,14 +157,15 @@ export default function Navbar() {
                   <p className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
                     Quick Contact
                   </p>
-                  <div className="space-y-2 text-sm">
+                  <div className="space-y-2.5 text-sm">
                     {C.phones.map((p) => (
                       <a
                         key={p}
                         href={tel(p)}
                         className="flex items-center gap-2 text-ink hover:text-saffron font-medium"
                       >
-                        <span className="text-emerald-600">📞</span> {p}
+                        <Phone className="h-4 w-4 text-emerald-600 shrink-0" />
+                        <span>{p}</span>
                       </a>
                     ))}
                     <a
@@ -172,7 +174,8 @@ export default function Navbar() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-emerald-700 font-medium hover:underline pt-1"
                     >
-                      <span>💬</span> Chat on WhatsApp
+                      <MessageCircle className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <span>Chat on WhatsApp</span>
                     </a>
                   </div>
                 </div>
@@ -183,10 +186,10 @@ export default function Navbar() {
                 <Link
                   onClick={() => setOpen(false)}
                   href="/contact"
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-saffron px-6 py-3.5 text-center text-sm font-bold text-white shadow-lg shadow-saffron/30 transition hover:brightness-105 active:scale-95"
+                  className="group flex w-full items-center justify-center gap-2 rounded-full bg-saffron px-6 py-3.5 text-center text-sm font-bold text-white shadow-lg shadow-saffron/30 transition hover:brightness-105 active:scale-95"
                 >
                   <span>Start Journey</span>
-                  <span>→</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </div>
             </motion.aside>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MapPin, Phone, Smartphone, Mail, ChevronRight } from "lucide-react";
 import { C, tel } from "@/lib/data";
 
 export default function Footer() {
@@ -13,7 +14,7 @@ export default function Footer() {
             TripSthan
           </h3>
           <p className="text-sm leading-relaxed text-[#5A4B42]">
-            Government-approved tour operator. Dedicated to creating unforgettable journeys across India with trust, care, and expertise. Private AC cabs, custom holiday packages, and certified local guides.
+            TripSthan plans private India tours and offers car hire with driver across India. With 20+ years on the road, we build trips around real places and real people, with experienced drivers, clean AC vehicles and local guides.
           </p>
 
           {/* Social Icons Row */}
@@ -154,9 +155,7 @@ export default function Footer() {
                   href={href}
                   className="group inline-flex items-center gap-2 transition hover:text-[#7A2318]"
                 >
-                  <span className="text-xs text-[#BA9366] transition group-hover:translate-x-0.5">
-                    ▸
-                  </span>
+                  <ChevronRight className="h-3.5 w-3.5 text-[#BA9366] transition group-hover:translate-x-0.5 shrink-0" />
                   <span>{label}</span>
                 </Link>
               </li>
@@ -173,9 +172,9 @@ export default function Footer() {
             {[
               ["About Us", "/about"],
               ["Why Choose TripSthan", "/about"],
-              ["Privacy Policy", "/contact"],
-              ["Terms and Conditions", "/contact"],
-              ["Refund and Cancellation", "/contact"],
+              ["Privacy Policy", "/privacy-policy"],
+              ["Terms and Conditions", "/terms-and-conditions"],
+              ["Refund and Cancellation", "/refund-and-cancellation"],
               ["Contact Us", "/contact"],
             ].map(([label, href]) => (
               <li key={label}>
@@ -183,9 +182,7 @@ export default function Footer() {
                   href={href}
                   className="group inline-flex items-center gap-2 transition hover:text-[#7A2318]"
                 >
-                  <span className="text-xs text-[#BA9366] transition group-hover:translate-x-0.5">
-                    ▸
-                  </span>
+                  <ChevronRight className="h-3.5 w-3.5 text-[#BA9366] transition group-hover:translate-x-0.5 shrink-0" />
                   <span>{label}</span>
                 </Link>
               </li>
@@ -201,18 +198,10 @@ export default function Footer() {
 
           {/* Address with Library MapPin SVG */}
           <div className="flex items-start gap-3 text-sm">
-            <svg
-              className="h-5 w-5 shrink-0 text-[#7A2318] mt-0.5 fill-none stroke-current stroke-2"
-              viewBox="0 0 24 24"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
+            <MapPin className="h-5 w-5 shrink-0 text-[#7A2318] mt-0.5" />
             <div className="leading-relaxed">
-              <p className="font-semibold text-[#3B2D24]">Agra, Uttar Pradesh, India</p>
-              <p className="text-xs text-[#6B5A50] mt-0.5">Head Office & Taj Sightseeing Desk</p>
+              <p className="font-semibold text-[#3B2D24]">226, Maidangarhi, New Delhi 110068</p>
+              <p className="text-xs text-[#6B5A50] mt-0.5">Head Operations & Tour Desk</p>
               <p className="text-xs text-[#6B5A50]">Delhi NCR Airport Pickup Hub</p>
             </div>
           </div>
@@ -220,14 +209,7 @@ export default function Footer() {
           {/* Phones with Library Phone SVGs */}
           <div className="space-y-2.5 pt-1 text-sm">
             <div className="flex items-center gap-3">
-              <svg
-                className="h-4 w-4 shrink-0 text-[#7A2318] fill-none stroke-current stroke-2"
-                viewBox="0 0 24 24"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-              </svg>
+              <Phone className="h-4 w-4 shrink-0 text-[#7A2318]" />
               <a
                 href={tel(C.phones[0])}
                 className="font-medium hover:text-[#7A2318] hover:underline"
@@ -237,15 +219,7 @@ export default function Footer() {
             </div>
             {C.phones[1] && (
               <div className="flex items-center gap-3">
-                <svg
-                  className="h-4 w-4 shrink-0 text-[#7A2318] fill-none stroke-current stroke-2"
-                  viewBox="0 0 24 24"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-                  <path d="M12 18h.01" />
-                </svg>
+                <Smartphone className="h-4 w-4 shrink-0 text-[#7A2318]" />
                 <a
                   href={tel(C.phones[1])}
                   className="font-medium hover:text-[#7A2318] hover:underline"
@@ -260,15 +234,7 @@ export default function Footer() {
           <div className="space-y-2.5 pt-1 text-sm">
             {C.emails.map((e) => (
               <div key={e} className="flex items-center gap-3">
-                <svg
-                  className="h-4 w-4 shrink-0 text-[#7A2318] fill-none stroke-current stroke-2"
-                  viewBox="0 0 24 24"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
+                <Mail className="h-4 w-4 shrink-0 text-[#7A2318]" />
                 <a
                   href={`mailto:${e}`}
                   className="break-all font-medium hover:text-[#7A2318] hover:underline"
@@ -284,7 +250,7 @@ export default function Footer() {
 
       {/* Copyright row */}
       <div className="mx-auto max-w-7xl px-6 md:px-12 flex flex-col sm:flex-row justify-between items-center text-xs text-[#7A6A5E] pt-10 pb-4 border-t border-[#DECFC0]/70 mt-12 relative z-10">
-        <p>© {new Date().getFullYear()} TripSthan. All Rights Reserved.</p>
+        <p>© 2026 TripSthan. All Rights Reserved.</p>
         <p className="hidden sm:block">Recognized Travel Agency & Private Tourist Cab Service</p>
       </div>
 

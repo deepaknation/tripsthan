@@ -2,9 +2,27 @@ import Parallax from "@/components/Parallax";
 import GalleryView from "@/components/GalleryView";
 
 export const metadata = {
-  title: "Photo Gallery | Real India Travel Moments & Fleet – TripSthan",
+  title: "India Tour Packages | Private Tours with Driver | TripSthan",
   description:
-    "Explore authentic travel moments from TripSthan private tours across Agra, Jaipur, Delhi, and Rajasthan.",
+    "Browse private India tour packages: Golden Triangle, Rajasthan, Himachal, Ganga and wildlife tours. Private car and driver included. Customize any plan.",
+  keywords: [
+    "India Tour Packages",
+    "Private Tours with Driver",
+    "Golden Triangle Tour",
+    "Rajasthan Tours",
+    "Himachal Tours",
+    "TripSthan",
+  ],
+  alternates: {
+    canonical: "/gallery",
+  },
+  openGraph: {
+    title: "India Tour Packages | Private Tours with Driver | TripSthan",
+    description:
+      "Browse private India tour packages: Golden Triangle, Rajasthan, Himachal, Ganga and wildlife tours. Private car and driver included. Customize any plan.",
+    url: "/gallery",
+    type: "website",
+  },
 };
 
 export default function GalleryPage() {
