@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
 
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-1.5 text-stone-200 border border-white/10">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Zero Card Storage Guarantee</span>
+              <span>Card Details Not Stored</span>
             </span>
 
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-1.5 text-stone-200 border border-white/10">
@@ -103,10 +103,6 @@ export default function PrivacyPolicyPage() {
               TripSthan plans private India tours and provides car hire with driver across India. This policy explains how we handle your personal information when you use our website or book a service with us.
             </p>
           </div>
-
-          <p className="mt-4 text-sm sm:text-base text-stone-700 leading-relaxed">
-            As a registered tour operator based in Agra, Uttar Pradesh, India, we recognize the importance of traveler confidentiality. Whether you are booking a Same Day Taj Mahal tour, a multi-day Golden Triangle trip, or reserving a private chauffeured vehicle, your privacy and trust are our top priorities.
-          </p>
         </section>
 
         {/* SECTION 2: Information We Collect */}
@@ -233,13 +229,13 @@ export default function PrivacyPolicyPage() {
             <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5 sm:p-6 space-y-3">
               <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
                 <ShieldCheck className="w-5 h-5 text-emerald-600" />
-                <span>Zero Card Storage Guarantee</span>
+                <span>Card Details Not Stored</span>
               </div>
               <h3 className="text-base font-bold text-ink">
                 Secure Third-Party Online Payments
               </h3>
               <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
-                Secure third-party payment providers handle online payments. <strong>Your card details are not stored on our website.</strong> All transactions are processed through encrypted, PCI-compliant payment gateways like PayPal, Wise, or authorized bank interfaces.
+                Online payments are handled by third-party payment providers such as PayPal. Your card details are not stored on our website.
               </p>
             </div>
 
@@ -276,13 +272,9 @@ export default function PrivacyPolicyPage() {
 
           <div className="rounded-2xl bg-[#FAF7F2] p-5 sm:p-6 border border-[#EAE0D2]">
             <p className="text-base sm:text-lg text-ink font-semibold leading-relaxed">
-              We keep your information only as long as needed to provide our services and meet legal and accounting requirements (typically for up to 3 years following the conclusion of your tour).
+              We keep your information only as long as needed to provide our services and meet legal and accounting requirements.
             </p>
           </div>
-
-          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-            After this retention threshold, guest personal data is either securely scrubbed or anonymized unless ongoing dispute resolution, statutory tax obligations, or travel safety regulations require extended holding.
-          </p>
         </section>
 
         {/* SECTION 6: Your Choices & Rights */}
@@ -306,8 +298,8 @@ export default function PrivacyPolicyPage() {
             </p>
             <p className="text-sm sm:text-base font-bold text-[#7A2318] pt-1">
               For any privacy question, write to{" "}
-              <a href="mailto:Tripsthan@gmail.com" className="underline hover:text-saffron">
-                Tripsthan@gmail.com
+              <a href="mailto:info@tripsthan.com" className="underline hover:text-saffron">
+                info@tripsthan.com
               </a>{" "}
               or call{" "}
               <a href={tel("+919953458949")} className="underline hover:text-saffron">
@@ -325,15 +317,15 @@ export default function PrivacyPolicyPage() {
           <div>
             <h3 className="text-lg font-bold text-white">Have a specific privacy concern?</h3>
             <p className="text-xs sm:text-sm text-stone-300 mt-0.5">
-              Our guest privacy team responds within 24 business hours.
+              Write to us and we will reply as soon as we can.
             </p>
           </div>
           <div className="flex items-center gap-3 shrink-0">
             <a
-              href="mailto:Tripsthan@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-saffron text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow hover:brightness-105 transition active:scale-95"
+              href="mailto:info@tripsthan.com"
+              className="inline-flex items-center gap-2 rounded-full bg-saffron text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow hover:brightness-105 transition active:scale-95 cursor-pointer"
             >
-              <span>Email Privacy Desk</span>
+              <span>Email Us</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>

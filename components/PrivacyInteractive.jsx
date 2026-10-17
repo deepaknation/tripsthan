@@ -142,7 +142,7 @@ export default function PrivacyInteractive() {
             Exercise Your Privacy Rights in 1-Click
           </h3>
           <p className="text-xs sm:text-sm text-stone-600 mt-1">
-            Choose what you would like to do with your data. We prepare a pre-formatted request ready to send to <strong className="text-ink">Tripsthan@gmail.com</strong>.
+            Choose what you would like to do with your data. We prepare a pre-formatted request ready to send to <strong className="text-ink">info@tripsthan.com</strong>.
           </p>
         </div>
 
@@ -204,7 +204,7 @@ export default function PrivacyInteractive() {
               </button>
 
               <a
-                href={`mailto:Tripsthan@gmail.com?subject=${encodeURIComponent(currentOption.subject)}&body=${encodeURIComponent(currentOption.body)}`}
+                href={`mailto:info@tripsthan.com?subject=${encodeURIComponent(currentOption.subject)}&body=${encodeURIComponent(currentOption.body)}`}
                 className="inline-flex items-center gap-1.5 rounded-xl border border-stone-300 bg-white hover:bg-stone-50 px-3.5 py-2 text-xs font-bold text-ink transition active:scale-95"
               >
                 <Mail className="w-3.5 h-3.5 text-[#7A2318]" />

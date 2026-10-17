@@ -21,7 +21,7 @@ const SLIDES = [
   },
   {
     id: 2,
-    image: "/rajasthan-tour-packages-hawa-mahal-jaipur.webp",
+    image: "/hawa-mahal-jaipur.jpg",
     alt: "Hawa Mahal Jaipur, part of our Rajasthan tour packages",
     badge: "ROYAL RAJPUTANA CIRCUITS | Jaipur, Jodhpur & Udaipur",
     title: "Step Into Royal Palaces & Golden Sands",

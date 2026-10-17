@@ -25,7 +25,7 @@ export default function PackageCard({ p, i = 0 }) {
           {/* Duration Badge */}
           <span className="absolute left-2 top-2 sm:left-3 sm:top-3 max-w-[58%] inline-flex items-center gap-1.5 rounded-full bg-black/75 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-semibold text-white shadow-sm backdrop-blur-md">
             <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-            <span className="truncate">{p.duration || `${p.days} ${p.days > 1 ? "Days" : "Day"}`}</span>
+            <span className="truncate">{p.badge || p.duration || `${p.days} ${p.days > 1 ? "Days" : "Day"}`}</span>
           </span>
 
           {/* Region / Category Badge */}
@@ -40,13 +40,13 @@ export default function PackageCard({ p, i = 0 }) {
           {/* Title */}
           <h3 className="text-sm sm:text-base font-bold leading-snug text-ink transition-colors duration-200 group-hover:text-saffron break-words [overflow-wrap:anywhere]">
             <Link href={href} className="hover:underline">
-              {p.title}
+              {p.cardTitle || p.title}
             </Link>
           </h3>
 
           {/* Overview snippet with Highlighted SEO Keywords */}
           <p className="mt-2 line-clamp-3 text-xs sm:text-sm leading-relaxed text-stone-600 break-words [overflow-wrap:anywhere]">
-            <HighlightedText text={p.overview} />
+            <HighlightedText text={p.cardText || p.overview} />
           </p>
 
           {/* Quick Highlights Snippets (First 2 highlights) */}

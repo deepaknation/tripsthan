@@ -33,7 +33,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#FAF7F2]">
       {/* Majestic Parallax Visual Banner */}
-      <Parallax img="/hero-artistic-india.jpg" priority h="min-h-[45vh] sm:min-h-[52vh]">
+      <Parallax img="/about-cover-mehrangarh.jpg" priority h="min-h-[45vh] sm:min-h-[52vh]">
         <div className="text-center px-4 max-w-4xl mx-auto">
           <span className="inline-block rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white border border-white/20 mb-3 shadow-sm">
             Explore India Your Way
@@ -93,7 +93,7 @@ export default function AboutPage() {
                 <span className="text-[11px] sm:text-xs text-stone-600">Years on Road</span>
               </div>
               <div className="rounded-xl bg-white p-2.5 sm:p-3 border border-stone-200 shadow-xs text-center">
-                <span className="block text-xl sm:text-2xl font-extrabold text-saffron">5,000+</span>
+                <span className="block text-xl sm:text-2xl font-extrabold text-saffron">500+</span>
                 <span className="text-[11px] sm:text-xs text-stone-600">Happy Guests</span>
               </div>
               <div className="rounded-xl bg-white p-2.5 sm:p-3 border border-stone-200 shadow-xs text-center">

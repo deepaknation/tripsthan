@@ -292,8 +292,8 @@ export function Why() {
   const points = [
     {
       num: "01",
-      title: "20+ Years of Real Road Experience",
-      text: "Our routes come from years of driving them. We know the best timings, the good rest stops and the roads to avoid, so your journey stays easy.",
+      title: "Luxury, Heritage & Budget Hotels",
+      text: "We arrange luxury hotels, heritage palaces and budget stays to match your trip, so every night of your tour is planned around your comfort and budget.",
       Icon: RoadExperienceIcon,
     },
     {
@@ -352,12 +352,8 @@ export function Why() {
                 key={p.num}
                 className="group relative rounded-2xl sm:rounded-3xl border border-[#EAE0D2] bg-white p-5 sm:p-6 shadow-xs transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-3.5">
+                <div className="flex items-center mb-3.5">
                   <IconComponent />
-                  <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2.5 py-0.5 text-[10px] font-extrabold tracking-wider text-stone-500 group-hover:bg-saffron/15 group-hover:text-saffron transition">
-                    <span className="h-1.5 w-1.5 rounded-full bg-saffron" />
-                    POINT {p.num}
-                  </span>
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-ink leading-snug group-hover:text-[#7A2318] transition">
                   {p.title}
@@ -390,39 +386,56 @@ export function Why() {
    DESTINATIONS (REGIONS)
    ========================================================================= */
 export function Destinations() {
-  const R = ["Rajasthan", "Uttar Pradesh", "Delhi", "Himachal", "Uttarakhand"];
-  const [selectedReg, setSelectedReg] = useState(R[0]);
+  const tabs = [
+    { label: "Rajasthan", tag: "TAB 1", reg: "Rajasthan" },
+    { label: "Uttar Pradesh", tag: "TAB 2", reg: "Uttar Pradesh" },
+    { label: "Delhi", tag: "TAB 3", reg: "Delhi" },
+    { label: "Himachal", tag: "TAB 4", reg: "Himachal" },
+    { label: "Uttarakhand", tag: "TAB 5", reg: "Uttarakhand" },
+  ];
+  const [selectedReg, setSelectedReg] = useState("Rajasthan");
 
   return (
     <section className="mx-auto max-w-7xl px-5 py-8 sm:py-12 overflow-hidden w-full max-w-full">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5 w-full max-w-full">
         <div>
           <span className="inline-block rounded-full bg-[#8E2818]/10 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-[#8E2818] mb-1.5">
-            Explore By Region
+            Curated Regional Circuits
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink tracking-tight">
-            Popular Destinations
+            Popular Tour Packages
           </h2>
           <p className="mt-1 text-xs sm:text-sm text-stone-600 max-w-2xl">
-            Explore India&apos;s most celebrated states with private AC car circuits, door-to-door comfort, and flexible schedules.
+            Explore India&apos;s most celebrated destinations with private AC car circuits, door-to-door comfort, and flexible schedules.
           </p>
         </div>
         <Link
           href="/tours"
           className="group inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white hover:bg-stone-50 hover:border-saffron/40 px-3.5 py-1.5 text-xs font-semibold text-stone-700 hover:text-saffron shadow-2xs transition self-start sm:self-auto shrink-0"
         >
-          <span>View all destinations</span>
+          <span>View all packages</span>
           <ArrowRight className="w-3.5 h-3.5 text-saffron transition-transform duration-200 group-hover:translate-x-1" />
         </Link>
       </div>
 
-      {/* Region Filter Chips */}
+      {/* Region Filter Chips with 5 Tabs from PDF */}
       <div className="w-full max-w-full overflow-x-auto pb-2 mb-5 flex gap-2 overscroll-x-contain touch-pan-x">
-        {R.map((x) => (
-          <Chip key={x} on={selectedReg === x} onClick={() => setSelectedReg(x)}>
-            {x}
-          </Chip>
-        ))}
+        {tabs.map((t) => {
+          const count = packages.filter((p) => p.reg === t.reg).length;
+          return (
+            <Chip key={t.reg} on={selectedReg === t.reg} onClick={() => setSelectedReg(t.reg)}>
+              <span className="opacity-75 text-[10px] font-bold tracking-wider mr-1 uppercase">{t.tag}:</span>
+              <span>{t.label}</span>
+              <span
+                className={`ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+                  selectedReg === t.reg ? "bg-white/30 text-white" : "bg-stone-200 text-stone-700"
+                }`}
+              >
+                {count}
+              </span>
+            </Chip>
+          );
+        })}
       </div>
 
       {/* Fully Mobile Responsive Grid */}

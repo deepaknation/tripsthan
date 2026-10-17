@@ -29,7 +29,7 @@ export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-[#FAF7F2]">
       {/* Majestic Parallax Visual Banner */}
-      <Parallax img="/hero-taj-sunrise.jpg" priority h="min-h-[42vh] sm:min-h-[48vh]">
+      <Parallax img="/gallery-cover-amber-fort.jpg" priority h="min-h-[42vh] sm:min-h-[48vh]">
         <div className="text-center px-4 max-w-3xl mx-auto">
           <span className="inline-block rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white border border-white/25 mb-3 shadow-sm">
             TripSthan Travel Moments

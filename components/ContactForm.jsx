@@ -15,10 +15,10 @@ const POPULAR_DESTINATIONS = [
 ];
 
 const TRAVELLER_PRESETS = [
-  "1-2 Travellers (Couple / Solo)",
-  "3-4 Travellers (Small Family)",
-  "5-7 Travellers (Innova Crysta)",
-  "8+ Travellers (Urbania / Tempo)",
+  "1-3 Travellers (Dzire)",
+  "4-6 Travellers (Innova Crysta)",
+  "7-10 Travellers (Force Urbania Traveller)",
+  "More than 10 Travellers (tell us in your message)",
 ];
 
 export default function ContactForm() {
@@ -437,7 +437,7 @@ export default function ContactForm() {
               )}
             </button>
             <p className="mt-3 text-center text-xs text-stone-500">
-              🔒 Routed securely to <strong>info@tripsthan.com</strong>. No spam, ever. We typically reply within 2 hours.
+              🔒 Routed securely to <strong>info@tripsthan.com</strong>. No spam, ever. We reply as soon as we can.
             </p>
           </div>
         </form>

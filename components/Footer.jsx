@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="flex items-center gap-2.5 pt-1">
             {/* Facebook */}
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/sonu.chauhan.583"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -34,7 +34,7 @@ export default function Footer() {
 
             {/* X / Twitter */}
             <a
-              href="https://twitter.com"
+              href="https://twitter.com/TripSthan"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X (Twitter)"
@@ -47,7 +47,7 @@ export default function Footer() {
 
             {/* YouTube */}
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/channel/UC02d8wu73hkZFS4Jb-NIJ3w"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
@@ -60,7 +60,7 @@ export default function Footer() {
 
             {/* Instagram */}
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/tripsthan/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -73,7 +73,7 @@ export default function Footer() {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/tripsthan-com-09ab44bb/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -86,7 +86,7 @@ export default function Footer() {
 
             {/* Pinterest */}
             <a
-              href="https://pinterest.com"
+              href="https://in.pinterest.com/tripsthan/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Pinterest"
@@ -144,10 +144,11 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm">
             {[
               ["Tours & Packages", "/tours"],
-              ["Luxury Car Hire", "/cars"],
+              ["Car Hire with Driver", "/cars"],
               ["Same Day Taj Mahal Tour", "/tours/same-day-taj-mahal-tour"],
               ["Golden Triangle Tours", "/tours/5-day-golden-triangle"],
               ["Photo Gallery", "/gallery"],
+              ["Travel Blog", "/blog"],
               ["Heritage Rajasthan Tours", "/tours/10-day-rajasthan-tour"],
             ].map(([label, href]) => (
               <li key={label}>
@@ -255,7 +256,7 @@ export default function Footer() {
       </div>
 
       {/* Big Background Watermark - Full & Uncropped */}
-      <div className="w-full flex justify-center items-center pt-4 pb-2 px-4 pointer-events-none select-none">
+      <div className="w-full flex justify-center items-center pt-4 pb-2 px-4 pointer-events-none select-none overflow-hidden">
         <span className="font-extrabold tracking-tight text-[#7A2318]/12 text-5xl sm:text-7xl md:text-8xl lg:text-[10vw] leading-normal whitespace-nowrap select-none">
           TripSthan
         </span>

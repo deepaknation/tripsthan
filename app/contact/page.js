@@ -8,7 +8,7 @@ import { C, tel, wa, CONTACT_FAQS } from "@/lib/data";
 export const metadata = {
   title: "Contact TripSthan | Plan Your India Tour or Car Hire",
   description:
-    "Contact TripSthan to plan a private India tour or hire a car with driver. Call or WhatsApp +91 7982625081. Based in Agra, serving all of India.",
+    "Contact TripSthan to plan a private India tour or hire a car with driver. Call or WhatsApp +91 7982625081. Based in New Delhi, serving all of India.",
   keywords: [
     "Contact TripSthan",
     "Plan Your India Tour",
@@ -23,7 +23,7 @@ export const metadata = {
   openGraph: {
     title: "Contact TripSthan | Plan Your India Tour or Car Hire",
     description:
-      "Contact TripSthan to plan a private India tour or hire a car with driver. Call or WhatsApp +91 7982625081. Based in Agra, serving all of India.",
+      "Contact TripSthan to plan a private India tour or hire a car with driver. Call or WhatsApp +91 7982625081. Based in New Delhi, serving all of India.",
     url: "/contact",
     type: "website",
   },
@@ -83,14 +83,14 @@ export default function ContactPage() {
       >
         <div className="mx-auto max-w-4xl text-center px-4">
           <span className="inline-block rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white border border-white/25 mb-3.5 shadow-sm">
-            TripSthan Travel Concierge &bull; 24/7 Roadside Assistance
+            TRIPSTHAN TRAVEL CONCIERGE &bull; SUPPORT THROUGHOUT YOUR TRIP
           </span>
           {/* H1 TAG */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg tracking-tight">
             Contact TripSthan: Plan Your Private India Tour
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/95 leading-relaxed drop-shadow font-medium">
-            Handcrafted day-by-day itineraries, transparent pricing, and private chauffeured cars across North India.
+            Day-by-day itineraries, clear pricing and private cars with experienced drivers across India.
           </p>
         </div>
       </Parallax>
@@ -204,7 +204,7 @@ export default function ContactPage() {
                     226, Maidangarhi, New Delhi 110068
                   </h3>
                   <p className="mt-1.5 text-xs sm:text-sm text-stone-600 leading-relaxed">
-                    Fleet maintenance, driver briefing, and customized tour scheduling base.
+                    Driver briefing and customized tour scheduling base.
                   </p>
                   <a
                     href="https://www.google.com/maps?q=226+Maidangarhi+New+Delhi+110068"

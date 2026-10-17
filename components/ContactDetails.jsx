@@ -57,10 +57,10 @@ export default function ContactDetails() {
                   className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-3.5 py-1.5 text-xs font-bold text-white shadow-sm transition active:scale-95"
                 >
                   <MessageCircle className="h-3.5 w-3.5" />
-                  <span>WhatsApp 24/7</span>
+                  <span>Message on WhatsApp</span>
                 </a>
                 <span className="text-xs text-stone-500">
-                  Instant reply for urgent travel &amp; same-day cabs
+                  Quick replies for urgent travel and same-day car hire.
                 </span>
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function ContactDetails() {
                 226, Maidangarhi, New Delhi 110068
               </p>
               <p className="mt-1 text-xs text-stone-500">
-                Delhi NCR base for driver allocations, vehicle maintenance, and tour supervision.
+                Delhi NCR base for tour planning, driver coordination and trip
               </p>
             </div>
           </div>
@@ -173,7 +173,7 @@ export default function ContactDetails() {
           <li className="flex items-start gap-2">
             <span className="text-saffron font-bold text-base leading-none">&bull;</span>
             <span>
-              <strong>No Forced Commercial Stops:</strong> Travel with freedom, stop where you wish for photos, dining, and sightseeing.
+              <strong>Travel Your Way:</strong> Stop where you wish for photos, meals and sightseeing, with a route planned around you.
             </span>
           </li>
           <li className="flex items-start gap-2">

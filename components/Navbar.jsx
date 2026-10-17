@@ -11,6 +11,7 @@ const NAV_LINKS = [
   ["Car Hire", "/cars"],
   ["Gallery", "/gallery"],
   ["About", "/about"],
+  ["Blog", "/blog"],
   ["Contact", "/contact"],
 ];
 

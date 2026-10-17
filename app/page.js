@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ArtisticHero from "@/components/ArtisticHero";
 import Parallax from "@/components/Parallax";
+import BlogSection from "@/components/BlogSection";
 import {
   StatsStrip,
   IntroSection,
@@ -47,7 +48,7 @@ export default function Home() {
       {/* SECTION 5: WHY CHOOSE TRIPSTHAN (6 POINTS) */}
       <Why />
 
-      {/* REGIONAL DESTINATIONS */}
+      {/* REGIONAL DESTINATIONS (5 TABS) */}
       <Destinations />
 
       {/* COMPREHENSIVE SERVICES */}
@@ -55,6 +56,9 @@ export default function Home() {
 
       {/* GUEST REVIEWS */}
       <Testimonials />
+
+      {/* TRAVEL BLOG SECTION */}
+      <BlogSection />
 
       {/* FINAL CALL TO ACTION */}
       <Parallax img={img("hawa", 1800)} h="min-h-[50vh]">

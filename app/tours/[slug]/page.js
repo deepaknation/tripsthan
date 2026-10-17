@@ -14,8 +14,8 @@ export async function generateMetadata({ params }) {
   const p = packages.find((x) => x.slug === params.slug);
   if (!p) return { title: "Tour Not Found – TripSthan" };
   return {
-    title: `${p.title} – TripSthan`,
-    description: p.overview ? p.overview.slice(0, 160) : "Book your private India tour with TripSthan.",
+    title: `${p.pageH1 || p.title} – TripSthan`,
+    description: (p.cardText || p.overview || "Book your private India tour with TripSthan.").slice(0, 160),
   };
 }
 
@@ -75,7 +75,7 @@ export default function TourDetailPage({ params }) {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-white max-w-4xl drop-shadow-md">
-            {p.title}
+            {p.pageH1 || p.title}
           </h1>
 
           <p className="mt-4 max-w-2xl text-sm sm:text-base text-white/85 leading-relaxed drop-shadow">

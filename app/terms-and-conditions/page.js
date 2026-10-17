@@ -113,7 +113,7 @@ export default function TermsAndConditionsPage() {
               <span className="text-xl">💳</span>
               <h3 className="text-base font-bold text-ink">Advance Deposit</h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Secures hotel room reservations, verified commercial chauffeur schedules, and dedicated AC vehicle bookings.
+                Secures hotel reservations, driver schedules and vehicle bookings.
               </p>
             </div>
 
@@ -276,23 +276,23 @@ export default function TermsAndConditionsPage() {
               05
             </span>
             <span className="text-xs font-bold uppercase tracking-wider text-[#7A2318]">
-              Fleet Operations
+              Vehicle Operations
             </span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-extrabold text-ink tracking-tight">
-            Vehicle Hire and Chauffeur Services
+            Vehicle Hire and Driver Services
           </h2>
 
           <div className="space-y-4 text-xs sm:text-sm text-stone-700 leading-relaxed">
             <p>
-              <strong>All-Inclusive Vehicle Rates:</strong> Unless otherwise specified in writing, private car hire quotes include fuel, all state inter-state border taxes, expressway toll fees, parking levies, and driver night halt allowances.
+              <strong>Vehicle Rates:</strong> Unless stated otherwise in writing, private car hire quotes include the driver, fuel, state taxes, tolls and doorstep pickup and drop. Anything not listed in your quote is not included.
             </p>
             <p>
-              <strong>Chauffeur Safety & Driving Hours:</strong> For passenger safety and transport department compliance, drivers are restricted to reasonable daily driving hours (typically 8 to 10 hours per day). Drivers cannot be requested to drive through the night on high-speed expressways without advance operational coordination.
+              <strong>Driver Safety and Rest:</strong> For passenger safety, drivers need reasonable rest during long journeys. Night driving, especially on high-speed expressways, is arranged only after prior coordination with us.
             </p>
             <p>
-              <strong>Vehicle Capacity:</strong> Vehicles must not exceed designated passenger seating and trunk luggage allowances (Sedans: up to 3 guests + 2 large bags; Innova Crysta: up to 5-6 guests; Force Urbania: up to 12-16 guests).
+              <strong>Vehicle Capacity:</strong> Vehicles must not exceed their seating and luggage capacity: Swift Dzire up to 4 guests, Innova Crysta up to 6 guests, and Force Urbania Traveller up to 10 guests. Luggage space depends on the number of guests, so please tell us your luggage in advance and we will suggest the right vehicle.
             </p>
           </div>
         </section>
@@ -320,7 +320,7 @@ export default function TermsAndConditionsPage() {
               <strong>Third-Party Service Providers:</strong> While TripSthan selects reputable hotels, licensed guides, and transport providers, we act as an intermediary operator. TripSthan is not liable for injury, damage, loss, or irregularities caused by negligence of independent third-party vendors.
             </p>
             <p>
-              <strong>Governing Law:</strong> All contracts, agreements, and disputes arising out of bookings with TripSthan shall be governed by the laws of India and subject to the exclusive jurisdiction of the competent courts in <strong>Agra, Uttar Pradesh, India</strong>.
+              <strong>Governing Law:</strong> All contracts, agreements and disputes arising out of bookings with TripSthan shall be governed by the laws of India and subject to the exclusive jurisdiction of the competent courts in New Delhi, India.
             </p>
           </div>
         </section>

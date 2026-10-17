@@ -45,7 +45,7 @@ export default function CarServicePage() {
     <main className="bg-[#FAF7F2] min-h-screen">
       {/* HERO SECTION */}
       <Parallax
-        img="/cars/force-urbania.jpg"
+        img="/cars/fleet-all-cars.jpg"
         priority
         h="min-h-[48vh] sm:min-h-[54vh]"
       >
